@@ -1,0 +1,144 @@
+@font-face {
+  font-family: "SanFranciscoLight";
+  src: url("/fonts/SanFranciscoDisplay-Light.otf"); }
+
+@font-face {
+  font-family: "SanFranciscoReg";
+  src: url("/fonts/SanFranciscoDisplay-Regular.otf"); }
+
+body {
+  background-color: #f9f9f9;
+  font-family: 'SanFranciscoLight'; }
+
+#app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white; }
+
+.l-box {
+  padding: 1em; }
+
+a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s; }
+  a:link:hover, a:visited:hover {
+    color: black; }
+
+i {
+  cursor: pointer; }
+
+.green {
+  color: #3fc649; }
+
+.yellow {
+  color: #f1c40f; }
+
+.client_status {
+  display: inline-block;
+  vertical-align: middle;
+  height: 6px;
+  width: 6px;
+  border-radius: 3px;
+  margin-left: 0.4em; }
+  .client_status.green {
+    background-color: #3fc649; }
+  .client_status.yellow {
+    background-color: #f1c40f; }
+  .client_status.red {
+    background-color: #f03d3d; }
+
+.clientapp .banner {
+  background-color: #f5f4f4; }
+  .clientapp .banner p {
+    font-size: 75%;
+    margin: 0; }
+
+.header {
+  font-family: 'SanFranciscoReg'; }
+  .header .context_menu {
+    font-size: 150%; }
+    .header .context_menu p {
+      display: inline; }
+      .header .context_menu p.details {
+        display: block;
+        font-size: 60%; }
+        .header .context_menu p.details i {
+          margin-right: 0.2em; }
+    .header .context_menu span {
+      margin-left: 0.5em;
+      margin-right: 0.5em; }
+    .header .context_menu .upper_level {
+      color: #b3b3b3; }
+    .header .context_menu .client_status {
+      margin-left: 0.2em; }
+  .header .user p {
+    text-align: right; }
+
+.criticals p {
+  font-size: 85%; }
+  .criticals p.subheading {
+    font-size: 125%; }
+    .criticals p.subheading i {
+      font-size: 80%;
+      margin-left: 0.4em; }
+  .criticals p.details {
+    font-size: 75%;
+    color: #b3b3b3; }
+  .criticals p.highlight {
+    font-size: 150%;
+    margin-top: 0; }
+
+.criticals .project_box {
+  margin-bottom: 1.5em;
+  border: 1px solid #E6E6E6;
+  border-radius: 2px; }
+  .criticals .project_box.new_project_box input {
+    outline: none;
+    border: none;
+    width: 100%; }
+
+.criticals .invoices table {
+  margin-bottom: 0em; }
+  .criticals .invoices table a.pure-button-primary {
+    color: white; }
+  .criticals .invoices table tr td.actions {
+    opacity: 0; }
+    .criticals .invoices table tr td.actions i {
+      margin-right: 0.6em; }
+  .criticals .invoices table tr:hover td.actions {
+    opacity: 1; }
+  .criticals .invoices table.new_invoice {
+    margin-bottom: 2em; }
+    .criticals .invoices table.new_invoice input {
+      width: 90%;
+      border: none;
+      outline: none; }
+
+.criticals .invoices #hor-minimalist-a {
+  font-size: 12px;
+  background: #fff;
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%; }
+
+.criticals .invoices #hor-minimalist-a th {
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+  padding: 10px 0px; }
+
+.criticals .invoices #hor-minimalist-a td {
+  color: #6b6b6b;
+  padding: 9px 8px 0px 0px; }
+  .criticals .invoices #hor-minimalist-a td .client_status {
+    margin-left: 0.6em; }
+
+.criticals .invoices #hor-minimalist-a tbody tr:hover td {
+  color: black; }
+
+.criticals .project_updates .project_update p.update_details span {
+  color: #b3b3b3; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,237 @@
+@font-face {
+    font-family: "SanFranciscoLight";
+    src: url('/fonts/SanFranciscoDisplay-Light.otf');
+}
+
+@font-face {
+    font-family: "SanFranciscoReg";
+    src: url('/fonts/SanFranciscoDisplay-Regular.otf');
+}
+
+$app-width: 1200px;
+$green-status-colour: #3fc649;
+$yellow-status-colour: #f1c40f;
+$red-status-colour: #f03d3d;
+$details-colour: #b3b3b3;
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'SanFranciscoLight';
+}
+
+#app {
+    width: 100%;
+    max-width: $app-width;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.l-box {
+    padding: 1em;
+}
+
+a {
+    &:link, &:visited {
+        text-decoration: none;
+        color: inherit;
+        transition: 0.3s;
+        &:hover {
+            color: black;
+        }
+    }
+}
+
+i {
+    cursor: pointer;
+}
+
+.green {
+    color: $green-status-colour;
+}
+
+.yellow {
+    color: $yellow-status-colour;
+}
+
+.client_status {
+    display: inline-block;
+    vertical-align: middle;
+    height: 6px;
+    width: 6px;
+    border-radius: 3px;
+    margin-left: 0.4em;
+
+    &.green {
+        background-color: $green-status-colour;
+    }
+    &.yellow {
+        background-color: $yellow-status-colour;
+    }
+    &.red {
+        background-color: $red-status-colour;
+    }
+}
+
+.clientapp {
+    .banner {
+        background-color: #f5f4f4;
+        p {
+            font-size: 75%;
+            margin: 0;
+        }
+    }
+}
+
+.header {
+    font-family: 'SanFranciscoReg';
+    .context_menu {
+        font-size: 150%;
+
+        p {
+            display: inline;
+
+            &.details {
+                display: block;
+                font-size: 60%;
+
+                i {
+                    margin-right: 0.2em;
+                }
+            }
+        }
+        span {
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+        }
+
+        .upper_level {
+            color: $details-colour;
+        }
+
+        .client_status {
+            margin-left: 0.2em;
+        }
+    }
+
+    .user {
+        p {
+            text-align: right;
+        }
+    }
+}
+
+.criticals {
+    p {
+        font-size: 85%;
+
+        &.subheading {
+            font-size: 125%;
+
+            i {
+                font-size: 80%;
+                margin-left: 0.4em;
+            }
+        }
+
+        &.details {
+            font-size: 75%;
+            color: $details-colour;
+        }
+
+        &.highlight {
+            font-size: 150%;
+            margin-top: 0;
+        }
+    }
+
+    .project_box {
+        margin-bottom: 1.5em;
+        border: 1px solid #E6E6E6;
+        border-radius: 2px;
+
+        &.new_project_box {
+            input {
+                outline: none;
+                border: none;
+                width: 100%;
+            }
+        }
+    }
+
+    .invoices {
+        table {
+            margin-bottom: 0em;
+            a {
+                &.pure-button-primary {
+                    color: white;
+                }
+            }
+
+            tr {
+                td {
+                    &.actions {
+                        opacity: 0;
+                        i {
+                            margin-right: 0.6em;
+                        }
+                    }
+                }
+                &:hover {
+                    td.actions {
+                        opacity: 1;
+                    }
+                }
+            }
+            &.new_invoice {
+                margin-bottom: 2em;
+
+                input {
+                    width: 90%;
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+        #hor-minimalist-a
+        {
+        	font-size: 12px;
+        	background: #fff;
+        	border-collapse: collapse;
+        	text-align: left;
+            width: 100%;
+        }
+        #hor-minimalist-a th
+        {
+        	font-size: 14px;
+        	font-weight: normal;
+        	color: black;
+        	padding: 10px 0px;
+        }
+        #hor-minimalist-a td
+        {
+        	color: #6b6b6b;
+        	padding: 9px 8px 0px 0px;
+
+            .client_status {
+                margin-left: 0.6em;
+            }
+        }
+        #hor-minimalist-a tbody tr:hover td
+        {
+        	color: black;
+        }
+    }
+
+    .project_updates {
+
+        .project_update {
+            p {
+                &.update_details {
+                    span {
+                        color: $details-colour;
+                    }
+                }
+            }
+        }
+    }
+}
