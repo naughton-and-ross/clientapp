@@ -12,5 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('styles/client');
+});
+
+Route::group(['prefix' => 'styles'], function() {
+    Route::get('client', function() {
+        return view('style');
+    });
+});
+
+// Aplication routes...
+Route::resource('clients','ClientController');
+Route::resource('projects', 'ProjectController');
+
+Route::get('authme', function() {
+    if (Auth::attempt(['email' => 'william.gravette@gmail.com', 'password' => 'password'])) {
+        return redirect('/');
+    }
+});
+
+
+Route::group(['prefix' => 'api', 'middleware' => 'auth'], function() {
+    Route::get('clients/{id}/projects', 'APIController@projectsByClient');
+    Route::post('clients/{id}/projects', 'ProjectController@store');
+    Route::post('clients/{id}/invoices', 'InvoiceController@store');
+    Route::post('clients/{id}/quotes', 'QuoteController@store');
+    Route::post('projects/{id}/updates', 'ProjectUpdateController@store');
+    Route::post('return', 'APIController@returnReuqest');
 });
