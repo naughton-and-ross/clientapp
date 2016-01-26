@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Client;
 use App\Invoice;
+use Carbon\Carbon;
 use Input;
 
 class InvoiceController extends Controller
@@ -51,14 +52,14 @@ class InvoiceController extends Controller
         $invoice->client_specific_id = $invoice_count + 1;
         $invoice->client_id = $client_id;
         $invoice->user_id = Auth::user()->id;
-        $invoice->issue_date = $input['issue_date'];
-        $invoice->amount = $input['amount'];
-        $invoice->due_date = $input['due_date'];
+        $invoice->issue_date = $request->issue_date;
+        $invoice->amount = $request->amount;
+        $invoice->due_date = $request->due_date;
         $invoice->is_paid = 0;
 
         $invoice->save();
 
-        return $invoice;
+        return redirect()->action('InvoiceController@show', [$invoice->id]);
     }
 
     /**
@@ -69,7 +70,20 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $invoice = Invoice::findOrFail($id);
+        $invoice->due_date_human = Carbon::createFromFormat('Y-m-d', $invoice->due_date)->diffForHumans();
+        $invoice->readable_specific_id = $invoice->client_specific_id;
+        if ($invoice->client_specific_id < 10) {
+            $invoice->readable_specific_id = sprintf("%02d", $invoice->client_specific_id);
+        }
+
+        $client = $invoice->client;
+        $client->client_id = $client->id + 1000;
+
+        return view('app.invoice', [
+            'client'  => $client,
+            'invoice' => $invoice
+        ]);
     }
 
     /**
@@ -92,7 +106,11 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $invoice = Invoice::find($id);
+        $invoice->update($request->input('form_data'));
+        $invoice->save();
+
+        return $invoice;
     }
 
     /**
@@ -103,6 +121,7 @@ class InvoiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $invoice = Invoice::findOrFail($id);
+        $invoice->delete();
     }
 }

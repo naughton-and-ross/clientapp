@@ -68,7 +68,19 @@ class QuoteController extends Controller
      */
     public function show($id)
     {
-        //
+        $quote = Quote::findOrFail($id);
+        $quote->readable_specific_id = $quote->client_specific_id;
+        if ($quote->client_specific_id < 10) {
+            $quote->readable_specific_id = sprintf("%02d", $quote->client_specific_id);
+        }
+
+        $client = $quote->client;
+        $client->client_id = $client->id + 1000;
+
+        return view('app.quote', [
+            'client'  => $client,
+            'quote' => $quote
+        ]);
     }
 
     /**
@@ -91,7 +103,11 @@ class QuoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $quote = Quote::find($id);
+        $quote->update($request->input('form_data'));
+        $quote->save();
+
+        return $quote;
     }
 
     /**
@@ -102,6 +118,7 @@ class QuoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $quote = Quote::findOrFail($id);
+        $quote->delete();
     }
 }

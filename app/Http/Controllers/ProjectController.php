@@ -62,6 +62,7 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $client = $project->client;
+        $project->project_updates = $project->project_updates()->orderBy('created_at', 'desc')->get();
 
         return view('app.project', [
             'project' => $project,
@@ -89,7 +90,11 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Project::find($id);
+        $project->update($request->input('form_data'));
+        $project->save();
+
+        return $project;
     }
 
     /**

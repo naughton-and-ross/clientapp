@@ -16,7 +16,7 @@ class APIController extends Controller
 {
     public function projectsByClient($id)
     {
-        return App\Client::find($id)->projects;
+        return Client::find($id)->projects()->orderBy('id', 'desc')->get();
     }
 
     public function addNewProject($client_id, Request $request)

@@ -20,7 +20,13 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return Client::all();
+        $clients = Client::all();
+        foreach ($clients as $client) {
+            $client->client_id = $client->id + 1000;
+        }
+        return view('app.clients', [
+            'clients' => $clients
+        ]);
     }
 
     /**
@@ -68,8 +74,10 @@ class ClientController extends Controller
             } else {
                 $invoice->is_overdue = false;
             }
+            $invoice->readable_specific_id = $invoice->client_specific_id;
             if ($invoice->client_specific_id < 10) {
-                $invoice->client_specific_id = sprintf("%02d", $invoice->client_specific_id);
+                $invoice->readable_specific_id = sprintf("%02d", $invoice->client_specific_id);
+
             }
             $invoice->terms_diff = $issue_date->diffInDays($due_date);
         }
