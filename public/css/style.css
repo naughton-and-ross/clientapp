@@ -14,7 +14,8 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: white; }
+  background-color: white;
+  padding-bottom: 2em; }
 
 .l-box {
   padding: 1em; }
@@ -28,6 +29,47 @@ a:link, a:visited {
 
 i {
   cursor: pointer; }
+
+.button-green,
+.button-red,
+.button-orange,
+.button-yellow,
+.button-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+
+.button-green {
+  background: #1cb841;
+  /* this is a green */ }
+
+.button-red {
+  background: #ca3c3c;
+  /* this is a maroon */ }
+
+.button-orange {
+  background: #df7514;
+  /* this is an orange */ }
+
+.button-yellow {
+  background: #f1c40f;
+  /* this is an orange */ }
+
+.button-secondary {
+  background: #42b8dd;
+  /* this is a light blue */ }
+
+.button-xsmall {
+  font-size: 70%; }
+
+.button-small {
+  font-size: 85%; }
+
+.button-large {
+  font-size: 110%; }
+
+.button-xlarge {
+  font-size: 125%; }
 
 .green {
   color: #3fc649; }
@@ -138,7 +180,12 @@ i {
 .criticals .invoices #hor-minimalist-a tbody tr:hover td {
   color: black; }
 
-.criticals .project_updates .project_update p.update_details span {
-  color: #b3b3b3; }
+.criticals .project_updates .project_update {
+  margin-bottom: 2em; }
+  .criticals .project_updates .project_update p.update_details span {
+    color: #b3b3b3; }
+
+.criticals .actions form {
+  display: inline; }
 
 /*# sourceMappingURL=style.css.map */

@@ -24,6 +24,7 @@ body {
     max-width: $app-width;
     margin: 0 auto;
     background-color: white;
+    padding-bottom: 2em;
 }
 
 .l-box {
@@ -43,6 +44,52 @@ a {
 
 i {
     cursor: pointer;
+}
+
+.button-green,
+.button-red,
+.button-orange,
+.button-yellow,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-green {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-red {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-orange {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-yellow {
+    background: $yellow-status-colour; /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+.button-xsmall {
+    font-size: 70%;
+}
+
+.button-small {
+    font-size: 85%;
+}
+
+.button-large {
+    font-size: 110%;
+}
+
+.button-xlarge {
+    font-size: 125%;
 }
 
 .green {
@@ -225,6 +272,8 @@ i {
     .project_updates {
 
         .project_update {
+            margin-bottom: 2em;
+
             p {
                 &.update_details {
                     span {
@@ -232,6 +281,12 @@ i {
                     }
                 }
             }
+        }
+    }
+
+    .actions {
+        form {
+            display: inline;
         }
     }
 }
