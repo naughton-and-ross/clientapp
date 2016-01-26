@@ -1,6 +1,10 @@
 @extends('app.template')
 @section('content')
-<div class="pure-g criticals">
+<script>
+    var project_id = {{$project->id}}
+    var is_complete = {{$project->is_complete}}
+</script>
+ <div class="pure-g criticals">
     <div class="pure-u-7-24 project_updates">
         <div class="l-box">
             <p class="subheading">
@@ -31,8 +35,8 @@
             </div>
             @endforeach
             @else
-            <p>
-                nutin
+            <p class="details">
+                No Project Updates
             </p>
             @endif
         </div>
@@ -43,6 +47,21 @@
             <p class="subheading">
                 Project Timeline <i class="fa fa-plus-square-o" @click="addProjectUpdate"></i>
             </p>
+        </div>
+    </div>
+    <div class="pure-u-14-24 actions">
+        <div class="l-box">
+            <p class="subheading">
+                Actions
+            </p>
+            <form method="post" @submit.prevent="markProjectComplete({{$project->id}})" v-if="!project_complete">
+                <input type="hidden" name="is_complete" value="1">
+                <button class="pure-button button-green">Mark as Complete</button>
+            </form>
+            <form method="post" @submit.prevent="markProjectInProgress({{$project->id}})" v-if="project_complete">
+                <input type="hidden" name="is_complete" value="0">
+                <button class="pure-button button-yellow">Mark as In Progress</button>
+            </form>
         </div>
     </div>
 </div>
