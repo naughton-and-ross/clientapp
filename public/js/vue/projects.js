@@ -6,7 +6,12 @@ new Vue({
         invoices: [],
         project_update_add: false,
         project_name: '',
-        project_desc: ''
+        project_desc: '',
+        project_id: project_id,
+        project_complete: is_complete,
+        form_data: {
+            is_complete: !is_complete
+        }
     },
 
     methods: {
@@ -15,6 +20,24 @@ new Vue({
         },
         cancelNewProjectUpdate: function() {
             this.project_update_add = false;
-        }
+        },
+        markProjectComplete: function(project_id) {
+            var project = this.$resource('/projects/:id');
+            project.update({id: project_id}, {form_data: this.form_data}).then(function (response) {
+                this.project_complete = 1;
+                this.form_data.is_complete = !this.form_data.is_complete;
+          }.bind(this), function (response) {
+              alert('its fucked');
+          });
+      },
+      markProjectInProgress: function(project_id) {
+          var project = this.$resource('/projects/:id');
+          project.update({id: project_id}, {form_data: this.form_data}).then(function (response) {
+              this.project_complete = 0;
+              this.form_data.is_complete = !this.form_data.is_complete;
+        }.bind(this), function (response) {
+            alert('its fucked');
+        });
+      }
     }
 });

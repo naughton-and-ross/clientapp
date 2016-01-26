@@ -20,15 +20,7 @@ new Vue({
             due_date: ''
         },
     },
-    ready: function() {
-
-    },
     methods: {
-        fetchProjectsList: function() {
-            this.$http.get('/api/clients/1/projects', function(projects) {
-                this.projects = projects;
-            });
-        },
         fetchInvoicesList: function() {
             this.$http.get('/api/');
         },
