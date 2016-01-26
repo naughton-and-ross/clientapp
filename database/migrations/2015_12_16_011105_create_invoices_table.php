@@ -20,6 +20,7 @@ class CreateInvoicesTable extends Migration
             $table->date('issue_date');
             $table->integer('amount');
             $table->date('due_date');
+            $table->text('summary');
             $table->boolean('is_paid');
             $table->timestamps();
         });
