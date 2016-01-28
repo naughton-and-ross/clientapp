@@ -2,7 +2,7 @@
     <div class="l-box">
         <p class="@if (isset($client)) upper_level @endif">
             <a href="{{url('/clients')}}">
-                Clients
+                Home
             </a>
         </p>
         @if (isset($client))
