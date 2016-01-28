@@ -4,11 +4,39 @@
     <div class="pure-u-8-24 projects">
         <div class="l-box">
             <p class="subheading">
-                Clients <i class="fa fa-plus-square-o" @click="addProject"></i>
+                Active Clients <i class="fa fa-plus-square-o" @click="addClient"></i>
             </p>
+            <div class="project_box new_project_box" v-if="client_add" transition="expand">
+                <div class="l-box">
+                    <form method="post" action="/clients">
+                        <p>
+                            <strong><input type="text" placeholder="Client Name" name="name"></strong>
+                        </p>
+                        <p class="details">
+                            <input type="text" class="details" placeholder="Client Industry" name="industry">
+                        </p>
+                        <p class="details">
+                            <input type="text" class="details" placeholder="Client Contact Name" name="contact_name">
+                        </p>
+                        <p class="details">
+                            <input type="text" class="details" placeholder="Client Contact Email" name="contact_email">
+                        </p>
+                        <p class="details">
+                            <input type="text" class="details" placeholder="Client Contact Phone" name="contact_phone">
+                        </p>
+                        <p class="details">
+                            <input type="text" class="details" placeholder="Client Contact Address" name="contact_address">
+                        </p>
+                        <p class="details">
+                            <button class="pure-button pure-button-primary">Create</button>
+                            <a class="pure-button" @click="cancelNewClient">Cancel</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
             @if (count($clients) == 0)
                 <p class="details">
-                    No clients added.
+                    No active clients.
                 </p>
             @else
             @foreach ($clients as $ind_client)
@@ -22,6 +50,40 @@
         </div>
     </div>
     <div class="pure-u-1-24 spacer">
+    </div>
+    <div class="pure-u-12-24 data">
+        <div class="pure-g">
+            <div class="pure-u-7-24">
+                <div class="l-box">
+                    <p class="subheading">
+                        Total Paid:
+                    </p>
+                    <p class="highlight">
+
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-9-24">
+                <div class="l-box">
+                    <p class="subheading">
+                        Total Outstanding:
+                    </p>
+                    <p class="highlight">
+
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-7-24">
+                <div class="l-box">
+                    <p class="subheading">
+                        Client Activity:
+                    </p>
+                    <p class="highlight">
+                        graph
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="pure-u-3-24">
         <!--
@@ -44,5 +106,5 @@
     -->
     </div>
 </div>
-<script src="{{asset('js/vue/clients.js')}}"></script>
+<script src="{{asset('js/vue/home.js')}}"></script>
 @endsection
