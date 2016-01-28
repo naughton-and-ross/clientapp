@@ -22,10 +22,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Client::class, function (Faker\Generator $faker) {
     return [
-        'public_id' => $faker->randomNumber(8),
+        'public_id' => str_random(8),
         'user_id' => '1',
         'name' => $faker->company,
         'industry' => 'Industry',
+        'status' => 'active',
         'contact_name' => $faker->name
     ];
 });
