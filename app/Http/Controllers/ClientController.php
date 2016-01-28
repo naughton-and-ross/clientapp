@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Auth;
 use Carbon\Carbon;
 use App\Client;
 use App\Invoice;
@@ -20,7 +21,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+        $clients = Client::where('status', 'active')->get();
         foreach ($clients as $client) {
             $client->client_id = $client->id + 1000;
         }
@@ -47,7 +48,13 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client($request->input());
+        $client->public_id = str_random(8);
+        $client->user_id = Auth::user()->id;
+        $client->status = "active";
+        $client->save();
+
+        return redirect('clients/'.$client->id);
     }
 
     /**
