@@ -77,6 +77,9 @@ i {
 .yellow {
   color: #f1c40f; }
 
+.red {
+  color: #f03d3d; }
+
 .client_status {
   display: inline-block;
   vertical-align: middle;
