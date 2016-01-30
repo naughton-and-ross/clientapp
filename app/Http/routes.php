@@ -22,14 +22,17 @@ Route::group(['prefix' => 'styles'], function() {
 });
 
 // Aplication routes...
-Route::resource('clients','ClientController');
-Route::resource('projects', 'ProjectController');
-Route::resource('invoices', 'InvoiceController');
-Route::resource('quotes', 'QuoteController');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('dashboard', 'DashboardController@renderDashboard');
+    Route::resource('clients','ClientController');
+    Route::resource('projects', 'ProjectController');
+    Route::resource('invoices', 'InvoiceController');
+    Route::resource('quotes', 'QuoteController');
+});
 
 Route::get('authme', function() {
     if (Auth::attempt(['email' => 'william.gravette@gmail.com', 'password' => 'password'])) {
-        return redirect('/');
+        return redirect('/dashboard');
     }
 });
 
