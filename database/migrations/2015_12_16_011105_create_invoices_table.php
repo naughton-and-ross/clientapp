@@ -17,11 +17,12 @@ class CreateInvoicesTable extends Migration
             $table->integer('client_specific_id');
             $table->integer('client_id');
             $table->integer('user_id');
-            $table->date('issue_date');
+            $table->timestamp('issue_date');
             $table->integer('amount');
-            $table->date('due_date');
+            $table->timestamp('due_date');
             $table->text('summary');
             $table->boolean('is_paid');
+            $table->timestamp('paid_at');
             $table->timestamps();
         });
     }

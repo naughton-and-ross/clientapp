@@ -71,7 +71,7 @@ class InvoiceController extends Controller
     public function show($id)
     {
         $invoice = Invoice::findOrFail($id);
-        $invoice->due_date_human = Carbon::createFromFormat('Y-m-d', $invoice->due_date)->diffForHumans();
+        $invoice->due_date_human = Carbon::parse($invoice->due_date)->diffForHumans();
         $invoice->readable_specific_id = $invoice->client_specific_id;
         if ($invoice->client_specific_id < 10) {
             $invoice->readable_specific_id = sprintf("%02d", $invoice->client_specific_id);
@@ -106,8 +106,12 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //return $request->input('form_data');
         $invoice = Invoice::find($id);
         $invoice->update($request->input('form_data'));
+        if ($request->input('form_data')['is_paid'] == true) {
+            $invoice->paid_at = Carbon::now();
+        }
         $invoice->save();
 
         return $invoice;

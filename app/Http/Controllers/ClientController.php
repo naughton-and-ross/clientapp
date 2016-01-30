@@ -25,6 +25,7 @@ class ClientController extends Controller
         foreach ($clients as $client) {
             $client->client_id = $client->id + 1000;
         }
+        return $clients;
         return view('app.clients', [
             'clients' => $clients
         ]);
@@ -72,8 +73,8 @@ class ClientController extends Controller
         $client->client_id = $client->id + 1000;
 
         foreach ($invoices as $invoice) {
-            $issue_date = Carbon::createFromFormat('Y-m-d', $invoice->issue_date);
-            $due_date = Carbon::createFromFormat('Y-m-d', $invoice->due_date);
+            $issue_date = Carbon::parse($invoice->issue_date);
+            $due_date = Carbon::parse($invoice->due_date);
             $now = Carbon::now();
             $invoice->terms = $due_date->diffForHumans();
             if ($now > $due_date) {
