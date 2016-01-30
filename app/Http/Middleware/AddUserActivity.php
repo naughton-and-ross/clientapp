@@ -20,7 +20,11 @@ class AddUserActivity
     {
         $user = Auth::user();
 
-
+        // set date, if row with current date and user id exists, increment counter by one, if not create row with counter of 1
+        //
+        // DB::table('user_activity')->increment('votes');
+        //
+        //
         return $next($request);
     }
 }
