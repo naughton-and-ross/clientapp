@@ -53,30 +53,30 @@
     </div>
     <div class="pure-u-12-24 data">
         <div class="pure-g">
-            <div class="pure-u-7-24">
+            <div class="pure-u-8-24">
                 <div class="l-box">
                     <p class="subheading">
-                        Total Paid:
+                        Total Outstanding:
                     </p>
                     <p class="highlight">
-
+                        ${{number_format($active_total)}}
                     </p>
                 </div>
             </div>
             <div class="pure-u-9-24">
                 <div class="l-box">
                     <p class="subheading">
-                        Total Outstanding:
+                        Total Overdue:
                     </p>
-                    <p class="highlight">
-
+                    <p class="highlight @if ($overdue_total > 0) red @endif">
+                        ${{number_format($overdue_total)}}
                     </p>
                 </div>
             </div>
             <div class="pure-u-7-24">
                 <div class="l-box">
                     <p class="subheading">
-                        Client Activity:
+                        30-day Position:
                     </p>
                     <p class="highlight">
                         graph

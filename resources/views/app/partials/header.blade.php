@@ -1,8 +1,8 @@
 <div class="pure-u-19-24 context_menu">
     <div class="l-box">
         <p class="@if (isset($client)) upper_level @endif">
-            <a href="{{url('/clients')}}">
-                Home
+            <a href="{{url('/dashboard')}}">
+                Dashboard
             </a>
         </p>
         @if (isset($client))
