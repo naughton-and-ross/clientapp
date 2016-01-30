@@ -23,7 +23,7 @@ class DashboardController extends Controller
         }
 
         $active_invoices = Invoice::where('is_paid', '0')->get();
-        $overdue_invoices = Invoice::where('is_paid', '0')->where('due_date', '<', $now)->get();
+        $overdue_invoices = Invoice::overdue()->get();
         $active_total = $active_invoices->sum('amount');
         $overdue_total = $overdue_invoices->sum('amount');
 
