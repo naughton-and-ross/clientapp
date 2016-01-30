@@ -14,6 +14,11 @@ class Invoice extends Model
         return $this->belongsTo('App\Client');
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('is_paid', '0');
+    }
+
     public function scopeOverdue($query)
     {
         $now = Carbon::now()->toDateTimeString();

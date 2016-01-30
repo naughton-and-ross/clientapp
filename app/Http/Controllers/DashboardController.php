@@ -22,7 +22,7 @@ class DashboardController extends Controller
             $client->client_id = $client->id + 1000;
         }
 
-        $active_invoices = Invoice::where('is_paid', '0')->get();
+        $active_invoices = Invoice::active()->get();
         $overdue_invoices = Invoice::overdue()->get();
         $active_total = $active_invoices->sum('amount');
         $overdue_total = $overdue_invoices->sum('amount');
