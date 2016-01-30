@@ -45,8 +45,21 @@
     <div class="pure-u-7-24 project_updates">
         <div class="l-box">
             <p class="subheading">
-                Project Timeline <i class="fa fa-plus-square-o" @click="addProjectUpdate"></i>
+                Project Activity Log <i class="fa fa-plus-square-o" @click="addProjectActivity"></i>
             </p>
+            <div class="project_box new_project_box" v-if="project_activity_add">
+                <div class="l-box">
+                    <form method="post" action="/api/projects/{{$project->id}}/updates">
+                        <p>
+                            <input type="text" class="details" placeholder="Your comment" v-model="project_update_comment" name="comment">
+                        </p>
+                        <p class="details">
+                            <button class="pure-button pure-button-primary">Comment</button>
+                            <a class="pure-button" @click="cancelNewProjectActivity">Cancel</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <div class="pure-u-14-24 actions">
