@@ -5,6 +5,7 @@ new Vue({
         projects: [],
         invoices: [],
         project_update_add: false,
+        project_activity_add: false,
         project_name: '',
         project_desc: '',
         project_id: project_id,
@@ -20,6 +21,12 @@ new Vue({
         },
         cancelNewProjectUpdate: function() {
             this.project_update_add = false;
+        },
+        addProjectActivity: function() {
+            this.project_activity_add = !this.project_activity_add;
+        },
+        cancelNewProjectActivity: function() {
+            this.project_activity_add = false;
         },
         markProjectComplete: function(project_id) {
             var project = this.$resource('/projects/:id');
