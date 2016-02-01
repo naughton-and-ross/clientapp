@@ -76,7 +76,6 @@ class ClientController extends Controller
             $issue_date = Carbon::parse($invoice->issue_date);
             $due_date = Carbon::parse($invoice->due_date);
             $now = Carbon::now();
-            $invoice->terms = $due_date->diffForHumans();
             if ($now > $due_date) {
                 $invoice->is_overdue = true;
             } else {
