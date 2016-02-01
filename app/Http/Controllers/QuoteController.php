@@ -42,7 +42,6 @@ class QuoteController extends Controller
      */
     public function store($client_id, Request $request)
     {
-        $input = $request->input('form_data');
         $quote = new Quote;
         $client = Client::findOrFail($client_id);
 
@@ -51,13 +50,13 @@ class QuoteController extends Controller
         $quote->client_specific_id = $quote_count + 1;
         $quote->client_id = $client_id;
         $quote->user_id = Auth::user()->id;
-        $quote->issue_date = $input['issue_date'];
-        $quote->amount = $input['amount'];
+        $quote->issue_date = $request->issue_date;
+        $quote->amount = $request->amount;
         $quote->is_accepted = 0;
 
         $quote->save();
 
-        return $quote;
+        return redirect()->action('QuoteController@show', [$quote->id]);
     }
 
     /**
