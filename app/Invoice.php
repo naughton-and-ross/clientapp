@@ -49,4 +49,10 @@ class Invoice extends Model
                      ->where('paid_at', '>=', $two_months_ago)
                      ->where('paid_at', '<=', $month_ago);
     }
+
+    public function HumanDueDate($due_date)
+    {
+        $due_date = Carbon::parse($due_date);
+        return $due_date->diffForHumans();
+    }
 }

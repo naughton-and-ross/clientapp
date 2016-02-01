@@ -94,7 +94,7 @@
                     <td>{{date('d.m.Y', strtotime($ind_invoice->issue_date))}}</td>
                     <td>${{number_format($ind_invoice->amount, 2)}}</td>
                     <td>{{$ind_invoice->terms_diff}} days</td>
-                    <td>{{$ind_invoice->terms}}</td>
+                    <td>{{$ind_invoice->HumanDueDate($ind_invoice->due_date)}}</td>
                     @if ($ind_invoice->is_paid == 1)
                     <td>Paid<div class="client_status green"></div></td>
                     @elseif ($ind_invoice->is_overdue == true && $ind_invoice->is_paid == 0)
