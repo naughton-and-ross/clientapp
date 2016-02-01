@@ -89,6 +89,50 @@
                     </p>
                 </div>
             </div>
+            <div class="pure-u-1 invoices">
+                <div class="l-box">
+                    <p class="subheading">
+                        Active Invoices
+                    </p>
+                    @if (count($active_invoices) == 0)
+                        <p class="details">
+                            No invoices issued.
+                        </p>
+                    @else
+                    <table id="hor-minimalist-a">
+                        <tr>
+                            <th>Inv. No.</th>
+                            <th>Dated</th>
+                            <th>Owed</th>
+                            <th>Terms</th>
+                            <th>Due</th>
+                            <th>Status</th>
+                        </tr>
+                        @foreach ($active_invoices as $ind_invoice)
+                        <tr>
+                            <td>{{$ind_invoice->client_id}}-{{$ind_invoice->client_specific_id}}</td>
+                            <td>{{date('d.m.Y', strtotime($ind_invoice->issue_date))}}</td>
+                            <td>${{number_format($ind_invoice->amount, 2)}}</td>
+                            <td>{{$ind_invoice->terms_diff}} days</td>
+                            <td>{{$ind_invoice->HumanDueDate($ind_invoice->due_date)}}</td>
+                            @if ($ind_invoice->is_paid == 1)
+                            <td>Paid<div class="client_status green"></div></td>
+                            @elseif ($ind_invoice->is_overdue == true && $ind_invoice->is_paid == 0)
+                            <td>Overdue<div class="client_status red"></div></td>
+                            @else
+                            <td>Unpaid<div class="client_status yellow"></div></td>
+                            @endif
+                            <td class="actions">
+                                <a href="/invoices/{{$ind_invoice->id}}">
+                                    <i class="fa fa-arrow-circle-o-right"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        @endif
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <div class="pure-u-3-24">

@@ -33,13 +33,32 @@ class DashboardController extends Controller
 
         $position_difference = $thirty_day_total - $previous_thirty_day_total;
 
+        foreach ($active_invoices as $invoice) {
+            $invoice->client_id = $invoice->client_id + 1000;
+
+            if ($invoice->client_specific_id < 10) {
+                $invoice->client_specific_id = sprintf("%02d", $invoice->client_specific_id);
+            }
+
+            $issue_date = Carbon::parse($invoice->issue_date);
+            $due_date = Carbon::parse($invoice->due_date);
+            $invoice->terms_diff = $issue_date->diffInDays($due_date);
+
+            if ($now > $due_date) {
+                $invoice->is_overdue = true;
+            } else {
+                $invoice->is_overdue = false;
+            }
+        }
+
         return view('app.dashboard', [
             'clients'                   => $clients,
             'active_total'              => $active_total,
             'overdue_total'             => $overdue_total,
             'thirty_day_total'          => $thirty_day_total,
             'previous_thirty_day_total' => $previous_thirty_day_total,
-            'position_diffeence'        => $position_difference
+            'position_diffeence'        => $position_difference,
+            'active_invoices'           => $active_invoices
         ]);
     }
 }
