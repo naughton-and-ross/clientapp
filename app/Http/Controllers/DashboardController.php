@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $clients = Client::where('status', 'active')->get();
 
         foreach ($clients as $client) {
-            $client->client_id = $client->id + 1000;
+            $client->client_id = $client->id + 999;
         }
 
         $active_invoices = Invoice::active()->get();
@@ -34,7 +34,7 @@ class DashboardController extends Controller
         $position_difference = $thirty_day_total - $previous_thirty_day_total;
 
         foreach ($active_invoices as $invoice) {
-            $invoice->client_id = $invoice->client_id + 1000;
+            $invoice->client_id = $invoice->client_id + 999;
 
             if ($invoice->client_specific_id < 10) {
                 $invoice->client_specific_id = sprintf("%02d", $invoice->client_specific_id);

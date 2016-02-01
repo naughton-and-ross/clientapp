@@ -78,7 +78,7 @@ class InvoiceController extends Controller
         }
 
         $client = $invoice->client;
-        $client->client_id = $client->id + 1000;
+        $client->client_id = $client->id + 999;
 
         return view('app.invoice', [
             'client'  => $client,

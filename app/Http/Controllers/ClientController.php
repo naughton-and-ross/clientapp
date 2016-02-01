@@ -70,7 +70,7 @@ class ClientController extends Controller
         $projects = Client::find($id)->projects()->orderBy('id', 'desc')->get();
         $invoices = Client::find($id)->invoices()->orderBy('id', 'desc')->get();
         $quotes = Client::find($id)->quotes()->orderBy('id', 'desc')->get();
-        $client->client_id = $client->id + 1000;
+        $client->client_id = $client->id + 999;
 
         foreach ($invoices as $invoice) {
             $issue_date = Carbon::parse($invoice->issue_date);
