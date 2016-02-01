@@ -22,6 +22,16 @@ class Invoice extends Model
     public function scopeOverdue($query)
     {
         $now = Carbon::now()->toDateTimeString();
-        return $query->where('is_paid', '0')->where('due_date', '<', $now);
+
+        return $query->where('is_paid', '0')
+                     ->where('due_date', '<', $now);
+    }
+
+    public function scopePaidInLastThirtyDays($query)
+    {
+        $month_ago = Carbon::now()->subDays(29);
+
+        return $query->where('is_paid', '1')
+                     ->where('paid_at', '>', $month_ago);
     }
 }
