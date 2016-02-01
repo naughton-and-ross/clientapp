@@ -49,9 +49,7 @@
             @endif
         </div>
     </div>
-    <div class="pure-u-1-24 spacer">
-    </div>
-    <div class="pure-u-12-24 data">
+    <div class="pure-u-13-24 data">
         <div class="pure-g">
             <div class="pure-u-8-24">
                 <div class="l-box">
@@ -63,7 +61,7 @@
                     </p>
                 </div>
             </div>
-            <div class="pure-u-9-24">
+            <div class="pure-u-7-24">
                 <div class="l-box">
                     <p class="subheading">
                         Total Overdue:
@@ -73,13 +71,21 @@
                     </p>
                 </div>
             </div>
-            <div class="pure-u-7-24">
+            <div class="pure-u-9-24">
                 <div class="l-box">
                     <p class="subheading">
                         30-day Position:
                     </p>
                     <p class="highlight">
-                        graph
+                        ${{number_format($thirty_day_total)}} &#8211;
+                        <span class="@if ($thirty_day_total > $previous_thirty_day_total) green @else red @endif)">
+                        @if ($position_diffeence > 0)
+                        <i class="fa fa-angle-up"></i>
+                        @else
+                        <i class="fa fa-angle-down"></i>
+                        @endif
+                        ${{number_format(abs($position_diffeence))}}
+                        </span>
                     </p>
                 </div>
             </div>
