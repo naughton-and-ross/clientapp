@@ -13,6 +13,7 @@ $green-status-colour: #3fc649;
 $yellow-status-colour: #f1c40f;
 $red-status-colour: #f03d3d;
 $details-colour: #b3b3b3;
+$dark-details-colour: #6B6B6B;
 
 body {
     background-color: #f9f9f9;
@@ -186,7 +187,7 @@ i {
 
         &.details {
             font-size: 75%;
-            color: $details-colour;
+            color: $dark-details-colour;
         }
 
         &.highlight {
