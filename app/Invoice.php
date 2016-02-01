@@ -14,6 +14,11 @@ class Invoice extends Model
         return $this->belongsTo('App\Client');
     }
 
+    public function scopePaid($query)
+    {
+        return $query->where('is_paid', '1');
+    }
+
     public function scopeActive($query)
     {
         return $query->where('is_paid', '0');
@@ -29,9 +34,19 @@ class Invoice extends Model
 
     public function scopePaidInLastThirtyDays($query)
     {
-        $month_ago = Carbon::now()->subDays(29);
+        $month_ago = Carbon::now()->subDays(30);
 
-        return $query->where('is_paid', '1')
+        return $query->paid()
                      ->where('paid_at', '>', $month_ago);
+    }
+
+    public function scopePaidInPreviousThirtyDays($query)
+    {
+        $month_ago = Carbon::now()->subDays(30);
+        $two_months_ago = Carbon::now()->subDays(60);
+
+        return $query->paid()
+                     ->where('paid_at', '>=', $two_months_ago)
+                     ->where('paid_at', '<=', $month_ago);
     }
 }
