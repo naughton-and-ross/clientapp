@@ -116,13 +116,13 @@
             <p class="subheading">
                 Quotes <i class="fa fa-plus-square-o" @click="addQuote"></i>
             </p>
-            <table v-if="quote_add" id="hor-minimalist-a" class="new_invoice" @submit.prevent="postQuote({{$client->id}})">
+            <table v-if="quote_add" id="hor-minimalist-a" class="new_invoice">
                 <tr>
                     <th>Issue Date</th>
                     <th>Amount</th>
                 </tr>
                 <tr>
-                    <form id="newQuote">
+                    <form id="newQuote" method="post" action="/api/clients/{{$client->id}}/quotes">
                         <td><input form="newQuote" type="date" name="issue_date" v-model="quote_data.issue_date" value="{{date('Y-m-d')}}"></td>
                         <td>$<input form="newQuote" type-"number" name="amount" v-model="quote_data.amount" placeholder="Quote amount"></td>
                         <td>
