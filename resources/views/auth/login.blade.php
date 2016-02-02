@@ -28,7 +28,7 @@
             </div>
             <div class="pure-u-1">
                 <div class="l-box">
-                    <img src="http://img2.goodfon.su/original/2560x1440/b/35/iskusstvo-nachtwacht-kartina.jpg" width="100%" />
+                    <img src="{{asset('img/clientapp-front.jpg')}}" width="100%" />
                 </div>
                 <div class="l-box">
                     @if (count($errors) > 0)
