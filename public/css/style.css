@@ -123,6 +123,8 @@ table {
       margin-left: 0.2em; }
   .header .user p {
     text-align: right; }
+    .header .user p span {
+      margin-left: 0.6em; }
 
 .criticals p {
   font-size: 85%; }
