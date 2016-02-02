@@ -33,6 +33,12 @@ i {
 table {
   width: 100%; }
 
+ul.errors {
+  list-style: none;
+  padding: 0; }
+  ul.errors li {
+    color: #f03d3d; }
+
 .button-green,
 .button-red,
 .button-orange,

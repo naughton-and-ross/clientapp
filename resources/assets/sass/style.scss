@@ -51,6 +51,15 @@ table {
     width: 100%;
 }
 
+ul.errors {
+    list-style: none;
+    padding: 0;
+
+    li {
+        color: $red-status-colour;
+    }
+}
+
 .button-green,
 .button-red,
 .button-orange,
