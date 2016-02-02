@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('styles/client');
+    return redirect('/dashboard');
 });
 
 Route::group(['prefix' => 'styles'], function() {
@@ -35,6 +35,16 @@ Route::get('authme', function() {
         return redirect('/dashboard');
     }
 });
+
+Route::get('deauth', function() {
+    Auth::logout();
+    return redirect('/auth/login');
+});
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 
 Route::group(['prefix' => 'api', 'middleware' => 'auth'], function() {
