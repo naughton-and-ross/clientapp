@@ -39,7 +39,7 @@
                        </ul>
                    @endif
                     <form class="pure-form" method="post">
-                        <input type="text" name="name" placeholder="Your Name"/>
+                        <input type="text" name="name" placeholder="Your Name" class="pure-u-6-24" autocomplete="off" />
                         <input type="password" name="password" placeholder="Your Password"/>
                         <button type="submit" class="pure-button pure-button-primary">Login</button>
                     </form>
