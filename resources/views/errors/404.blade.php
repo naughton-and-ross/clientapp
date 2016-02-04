@@ -44,7 +44,7 @@
             <div class="content">
                 <div class="title">Naughton & Ross <strong>ClientApp</strong></div>
                 <div class="subtitle">
-                    ClientApp is down. Please refresh the page and try again.
+                    What you were looking for cannot be found.
                 </div>
             </div>
         </div>
