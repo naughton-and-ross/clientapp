@@ -17,7 +17,7 @@
                         <p>
                             {{Auth::user()->name}}
                             <span>
-                                <a href="auth/logout">
+                                <a href="/auth/logout">
                                     <i class="fa fa-sign-out"></i>
                                 </a>
                             </span>
