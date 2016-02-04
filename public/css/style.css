@@ -161,6 +161,8 @@ select {
     outline: none;
     border: none;
     width: 100%; }
+  .criticals .project_box .latest_activity {
+    border-top: 1px solid #E6E6E6; }
 
 .criticals .invoices table {
   margin-bottom: 0em; }
