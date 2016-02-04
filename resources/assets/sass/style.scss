@@ -313,6 +313,38 @@ select {
         }
     }
 
+    .project_activity {
+
+        .project_activity_block {
+            p {
+                margin: 0;
+
+                &.activity_title {
+                    font-size: 100%;
+                    margin-bottom: 0.3em;
+                }
+
+                &.details {
+                    margin-bottom: 0.4em;
+                }
+            }
+
+            .activity_icon {
+                border-left: 2px solid #E0E0E0;
+
+                .l-box {
+                    padding-left: 0;
+
+                    i {
+                        padding: 0.2em 0.2em 0.3em 0.2em;
+                        margin-left: -10px;
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+
     .actions {
         form {
             display: inline;

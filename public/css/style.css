@@ -205,6 +205,23 @@ select {
   .criticals .project_updates .project_update p.update_details span {
     color: #b3b3b3; }
 
+.criticals .project_activity .project_activity_block p {
+  margin: 0; }
+  .criticals .project_activity .project_activity_block p.activity_title {
+    font-size: 100%;
+    margin-bottom: 0.3em; }
+  .criticals .project_activity .project_activity_block p.details {
+    margin-bottom: 0.4em; }
+
+.criticals .project_activity .project_activity_block .activity_icon {
+  border-left: 2px solid #E0E0E0; }
+  .criticals .project_activity .project_activity_block .activity_icon .l-box {
+    padding-left: 0; }
+    .criticals .project_activity .project_activity_block .activity_icon .l-box i {
+      padding: 0.2em 0.2em 0.3em 0.2em;
+      margin-left: -10px;
+      background-color: white; }
+
 .criticals .actions form {
   display: inline; }
 
