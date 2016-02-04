@@ -9,6 +9,10 @@ class Project extends Model
 
     protected $fillable = ['is_complete'];
 
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+
     public function client() {
         return $this->belongsTo('App\Client');
     }
@@ -16,5 +20,10 @@ class Project extends Model
     public function project_updates()
     {
         return $this->hasMany('App\ProjectUpdate');
+    }
+
+    public function project_activity()
+    {
+        return $this->hasMany('App\ProjectActivity');
     }
 }
