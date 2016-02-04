@@ -36,6 +36,51 @@
                     <p class="details">
                         {{$ind_project->desc}}
                     </p>
+                    @if (isset($ind_project->latest_activity))
+                    <div class="pure-g latest_activity">
+                        <div class="pure-u-2-24 activity_icon">
+                            <p class="
+                                @if ($ind_project->latest_activity->activity_type == "milestone")
+                                green
+                                @elseif ($ind_project->latest_activity->activity_type == "problem")
+                                yellow
+                                @elseif ($ind_project->latest_activity->activity_type == "major")
+                                red
+                                @endif
+                            ">
+                                <i class="fa fa-{{$ind_project->latest_activity->activity_icon_code}}"></i>
+                            </p>
+                        </div>
+                        <div class="pure-u-21-24 activity_info">
+                            <p class="activity_title">
+                                {{$ind_project->latest_activity->activity_title}}
+                            </p>
+                            <p class="details">
+                                {{$ind_project->latest_activity->activity_desc}}
+                            </p>
+                            <p class="details">
+                                {{$ind_project->latest_activity->created_at->diffForHumans()}} by {{$ind_project->latest_activity->user->name}}
+                            </p>
+                        </div>
+                    </div>
+                    @else
+                    <div class="pure-g latest_activity">
+                        <div class="pure-u-2-24 activity_icon">
+                            <p class="green">
+                                <i class="fa fa-play-circle-o"></i>
+                            </p>
+                        </div>
+                        <div class="pure-u-21-24 activity_info">
+                            <p class="activity_title">
+                                Project Established
+                            </p>
+                            <p class="details">
+                                {{$ind_project->created_at->diffForHumans()}} by {{$ind_project->user->name}}
+                            </p>
+                        </div>
+                    </div>
+                    @endif
+                    <!--
                     <p class="details">
                         @if (!$ind_project->is_complete)
                         <span class="yellow"><i class="fa fa-circle-o-notch"></i> In Progress</span>
@@ -43,6 +88,7 @@
                         <span class="green"><i class="fa fa-check-circle-o"></i> Complete</span>
                         @endif
                     </p>
+                    -->
                 </div>
             </div>
             @endforeach
