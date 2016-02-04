@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="pure-u-1-24 spacer"></div>
-    <div class="pure-u-7-24 project_activity">
+    <div class="pure-u-8-24 project_activity">
         <div class="l-box">
             <p class="subheading">
                 Project Activity Log <i class="fa fa-plus-square-o" @click="addProjectActivity"></i>
@@ -66,13 +66,13 @@
                                     Normal
                                 </option>
                                 <option value="milestone">
-                                    Milestone
+                                    Milestone (Green)
                                 </option>
                                 <option value="problem">
-                                    Problem
+                                    Problem (Yellow)
                                 </option>
                                 <option value="major">
-                                    Major Problem
+                                    Major Problem (Red)
                                 </option>
                             </select>
                         </p>
