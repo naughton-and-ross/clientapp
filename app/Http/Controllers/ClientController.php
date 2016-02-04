@@ -95,8 +95,12 @@ class ClientController extends Controller
             }
         }
 
-        $totalPaid = $client->invoices()->where('is_paid', '1')->sum('amount');
-        $totalOutstanding = $client->invoices()->where('is_paid', '0')->sum('amount');
+        foreach ($projects as $project) {
+            $project->latest_activity = $project->project_activity()->latest()->first();
+        }
+
+        $totalPaid = $client->invoices()->paid()->sum('amount');
+        $totalOutstanding = $client->invoices()->active()->sum('amount');
 
         return view('app.client', [
             'client'            => $client,
