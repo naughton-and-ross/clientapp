@@ -45,7 +45,7 @@
                     Latest Update: <span class="label green">Milestone</span>&#8212;
                     <span>Project Complete</span>
                 </p>
-                @if (count($project->project_updates) > 0)
+                @if (count($project->project_activity) > 0)
                 <p class="details" v-if="!project_complete">
                     Latest Update: <span class="label
                         @if ($project->project_activity->first()->activity_type == "milestone")

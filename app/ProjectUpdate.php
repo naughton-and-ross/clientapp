@@ -17,4 +17,9 @@ class ProjectUpdate extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function scopeDesc($query)
+    {
+        return $query->orderBy('created_at', 'DESC');
+    }
 }

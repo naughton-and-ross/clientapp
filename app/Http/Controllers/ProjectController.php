@@ -62,9 +62,10 @@ class ProjectController extends Controller
     {
         $project = Project::findOrFail($id);
         $client = $project->client;
-        $project->project_updates = $project->project_updates()->orderBy('created_at', 'desc')->get();
-        $project->project_activity = $project->project_activity()->orderBy('created_at', 'desc')->get();
-        
+
+        $project->project_updates = $project->project_updates()->desc()->get();
+        $project->project_activity = $project->project_activity()->desc()->get();
+
         return view('app.project', [
             'project' => $project,
             'client'  => $client
