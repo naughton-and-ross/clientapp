@@ -41,6 +41,32 @@
                 <p class="details">
                     {{$project->desc}}
                 </p>
+                <p class="details" v-if="project_complete">
+                    Latest Update: <span class="label green">Milestone</span>&#8212;
+                    <span>Project Complete</span>
+                </p>
+                @if (count($project->project_updates) > 0)
+                <p class="details" v-if="!project_complete">
+                    Latest Update: <span class="label
+                        @if ($project->project_activity->first()->activity_type == "milestone")
+                        green
+                        @elseif ($project->project_activity->first()->activity_type == "problem")
+                        yellow
+                        @elseif ($project->project_activity->first()->activity_type == "major")
+                        red
+                        @endif
+                    ">
+                        @if ($project->project_activity->first()->activity_type == "milestone")
+                        Milestone
+                        @elseif ($project->project_activity->first()->activity_type == "problem")
+                        Problem
+                        @elseif ($project->project_activity->first()->activity_type == "major")
+                        Major Problem
+                        @endif
+                    </span>&#8212;
+                    <span>{{$project->project_activity->first()->activity_title}}</span>
+                </p>
+                @endif
             </div>
         </div>
         @endif

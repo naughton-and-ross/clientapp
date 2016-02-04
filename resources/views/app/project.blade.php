@@ -59,11 +59,46 @@
                         <p>
                             <input type="text" class="details" placeholder="FontAwesome icon-code (optional)" name="activity_icon_code">
                         </p>
+                        <p>
+                            Activity type
+                            <select name="activity_type">
+                                <option value="normal">
+                                    Normal
+                                </option>
+                                <option value="milestone">
+                                    Milestone
+                                </option>
+                                <option value="problem">
+                                    Problem
+                                </option>
+                                <option value="major">
+                                    Major Problem
+                                </option>
+                            </select>
+                        </p>
                         <p class="details">
                             <button class="pure-button pure-button-primary">Log Activity</button>
                             <a class="pure-button" @click="cancelNewProjectActivity">Cancel</a>
                         </p>
                     </form>
+                </div>
+            </div>
+            <div class="pure-u-1 project_activity_block" v-if="project_complete">
+                <div class="pure-g">
+                    <div class="pure-u-2-24 activity_icon">
+                        <div class="l-box">
+                            <p class="green">
+                                <i class="fa fa-check-circle-o"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-u-19-24 activity_info">
+                        <div class="l-box">
+                            <p class="activity_title">
+                                Project Completed
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             @if (count($project->project_activity) > 0)
@@ -72,12 +107,20 @@
                 <div class="pure-g">
                     <div class="pure-u-2-24 activity_icon">
                         <div class="l-box">
-                            <p class="">
+                            <p class="
+                                @if ($projectActivity->activity_type == "milestone")
+                                green
+                                @elseif ($projectActivity->activity_type == "problem")
+                                yellow
+                                @elseif ($projectActivity->activity_type == "major")
+                                red
+                                @endif
+                            ">
                                 <i class="fa fa-{{$projectActivity->activity_icon_code}}"></i>
                             </p>
                         </div>
                     </div>
-                    <div class="pure-u-20-24 activity_info">
+                    <div class="pure-u-21-24 activity_info">
                         <div class="l-box">
                             <p class="activity_title">
                                 {{$projectActivity->activity_title}}
@@ -115,6 +158,30 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="pure-u-1-24 spacer"></div>
+    <div class="pure-u-7-24 project_files">
+        <div class="l-box">
+            <p class="subheading">
+                Project Files <i class="fa fa-plus-square-o" @click="addProjectFile"></i>
+            </p>
+            <div class="project_box new_project_box" v-if="project_file_add">
+                <div class="l-box">
+                    <form method="post" action="/api/projects/{{$project->id}}/updates">
+                        <p>
+                            <input type="text" class="details" placeholder="Your comment" v-model="project_update_comment" name="comment">
+                        </p>
+                        <p class="details">
+                            <button class="pure-button pure-button-primary">Comment</button>
+                            <a class="pure-button" @click="cancelNewProjectUpdate">Cancel</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <p class="details">
+                Doesn't work yet.
+            </p>
         </div>
     </div>
     <div class="pure-u-14-24 actions">

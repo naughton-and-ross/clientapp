@@ -65,6 +65,7 @@ select {
    -moz-appearance: none;
    appearance: none;
    padding: 0.2em 0.4em 0.2em 0.4em;
+   border-color: $details-colour;
 }
 
 .button-green,

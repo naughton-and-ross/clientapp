@@ -43,7 +43,8 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 0.2em 0.4em 0.2em 0.4em; }
+  padding: 0.2em 0.4em 0.2em 0.4em;
+  border-color: #b3b3b3; }
 
 .button-green,
 .button-red,
