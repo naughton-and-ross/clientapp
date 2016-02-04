@@ -46,6 +46,8 @@ class ProjectActivityController extends Controller
         $activity->user_id = $request->user()->id;
         $activity->project_id = $project_id;
         $activity->save();
+
+        return redirect('projects/'.$project_id);
     }
 
     /**

@@ -48,7 +48,7 @@ class ProjectUpdateController extends Controller
         $projectUpdate->comment = $request->comment;
         $projectUpdate->save();
 
-        return $projectUpdate;
+        return redirect('projects/'.$project_id);
     }
 
     /**
