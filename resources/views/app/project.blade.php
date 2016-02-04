@@ -42,22 +42,77 @@
         </div>
     </div>
     <div class="pure-u-1-24 spacer"></div>
-    <div class="pure-u-7-24 project_updates">
+    <div class="pure-u-7-24 project_activity">
         <div class="l-box">
             <p class="subheading">
                 Project Activity Log <i class="fa fa-plus-square-o" @click="addProjectActivity"></i>
             </p>
             <div class="project_box new_project_box" v-if="project_activity_add">
                 <div class="l-box">
-                    <form method="post" action="/api/projects/{{$project->id}}/updates">
+                    <form method="post" action="/api/projects/{{$project->id}}/activity">
                         <p>
-                            <input type="text" class="details" placeholder="Your comment" v-model="project_update_comment" name="comment">
+                            <strong><input type="text" class="details" placeholder="Activity Title" name="activity_title"></strong>
+                        </p>
+                        <p>
+                            <input type="text" class="details" placeholder="Activity Description (optional)" name="activity_desc">
+                        </p>
+                        <p>
+                            <input type="text" class="details" placeholder="FontAwesome icon-code (optional)" name="activity_icon_code">
                         </p>
                         <p class="details">
-                            <button class="pure-button pure-button-primary">Comment</button>
+                            <button class="pure-button pure-button-primary">Log Activity</button>
                             <a class="pure-button" @click="cancelNewProjectActivity">Cancel</a>
                         </p>
                     </form>
+                </div>
+            </div>
+            @if (count($project->project_activity) > 0)
+            @foreach ($project->project_activity as $projectActivity)
+            <div class="pure-u-1 project_activity_block">
+                <div class="pure-g">
+                    <div class="pure-u-2-24 activity_icon">
+                        <div class="l-box">
+                            <p class="">
+                                <i class="fa fa-{{$projectActivity->activity_icon_code}}"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-u-20-24 activity_info">
+                        <div class="l-box">
+                            <p class="activity_title">
+                                {{$projectActivity->activity_title}}
+                            </p>
+                            <p class="details">
+                                {{$projectActivity->activity_desc}}
+                            </p>
+                            <p class="details">
+                                {{$projectActivity->created_at->diffForHumans()}} by {{$projectActivity->user->name}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @endif
+            <div class="pure-u-1 project_activity_block">
+                <div class="pure-g">
+                    <div class="pure-u-2-24 activity_icon">
+                        <div class="l-box">
+                            <p class="green">
+                                <i class="fa fa-play-circle-o"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-u-19-24 activity_info">
+                        <div class="l-box">
+                            <p class="activity_title">
+                                Project Established
+                            </p>
+                            <p class="details">
+                                {{$project->created_at->diffForHumans()}} by {{$project->user->name}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
