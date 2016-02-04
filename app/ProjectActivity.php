@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProjectActivity extends Model
 {
-    protected $fillable= ['activity_title', 'activity_desc', 'activity_icon_code'];
-    
+    protected $fillable= ['activity_title', 'activity_desc', 'activity_icon_code', 'activity_type'];
+
     public function project()
     {
         return $this->belongsTo('App\Project');
