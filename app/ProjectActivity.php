@@ -17,4 +17,9 @@ class ProjectActivity extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function scopeLatest($query)
+    {
+        return $query->orderBy('created_at', 'desc');
+    }
 }
