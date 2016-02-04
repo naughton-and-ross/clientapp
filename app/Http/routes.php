@@ -53,5 +53,6 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function() {
     Route::post('clients/{id}/invoices', 'InvoiceController@store');
     Route::post('clients/{id}/quotes', 'QuoteController@store');
     Route::post('projects/{id}/updates', 'ProjectUpdateController@store');
+    Route::post('projects/{id}/activity', 'ProjectActivityController@store');
     Route::post('return', 'APIController@returnReuqest');
 });
