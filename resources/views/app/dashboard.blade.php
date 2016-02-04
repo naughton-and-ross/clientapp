@@ -96,7 +96,7 @@
                     </p>
                     @if (count($active_invoices) == 0)
                         <p class="details">
-                            No invoices issued.
+                            No active invoices.
                         </p>
                     @else
                     <table id="hor-minimalist-a">
