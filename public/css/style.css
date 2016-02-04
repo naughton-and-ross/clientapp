@@ -39,6 +39,12 @@ ul.errors {
   ul.errors li {
     color: #f03d3d; }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.2em 0.4em 0.2em 0.4em; }
+
 .button-green,
 .button-red,
 .button-orange,
