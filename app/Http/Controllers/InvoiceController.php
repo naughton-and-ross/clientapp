@@ -43,7 +43,6 @@ class InvoiceController extends Controller
      */
     public function store($client_id, Request $request)
     {
-        $input = $request->input('form_data');
         $invoice = new Invoice;
         $client = Client::findOrFail($client_id);
 
@@ -59,7 +58,7 @@ class InvoiceController extends Controller
 
         $invoice->save();
 
-        return redirect()->action('InvoiceController@show', [$invoice->id]);
+        return redirect('clients/'.$client_id);
     }
 
     /**

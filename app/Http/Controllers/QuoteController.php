@@ -56,7 +56,7 @@ class QuoteController extends Controller
 
         $quote->save();
 
-        return redirect()->action('QuoteController@show', [$quote->id]);
+        return return redirect('clients/'.$client_id);
     }
 
     /**
