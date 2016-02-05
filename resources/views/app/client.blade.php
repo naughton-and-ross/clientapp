@@ -98,7 +98,7 @@
     </div>
     <div class="pure-u-1-24 spacer">
     </div>
-    <div class="pure-u-13-24 invoices">
+    <div class="pure-u-14-24 invoices">
         <div class="l-box">
             <p class="subheading">
                 Invoices <i class="fa fa-plus-square-o" @click="addInvoice"></i>
@@ -108,12 +108,30 @@
                     <th>Issue Date</th>
                     <th>Amount</th>
                     <th>Due Date</th>
+                    <!--
+                    @if (count($projects) > 0)
+                    <th>Relevant Projects</th>
+                    @endif
+                    -->
                 </tr>
                 <tr>
-                    <form id="newInvoice" method="post" action="/api/clients/{{$client->id}}/invoices">
+                    <form id="newInvoice" method="post" enctype="multipart/form-data" action="/api/clients/{{$client->id}}/invoices">
                         <td><input form="newInvoice" type="date" name="issue_date" v-model="invoice_data.issue_date" value="{{date('Y-m-d')}}"></td>
                         <td>$<input form="newInvoice" type-"number" name="amount" v-model="invoice_data.amount" placeholder="Invoice amount"></td>
                         <td><input form="newInvoice" type="date" name="due_date" v-model="invoice_data.due_date" min="{{date('Y-m-d')}}"></td>
+                        <!--
+                        @if (count($projects) > 0)
+                        <td>
+                            <select form="newInvoice" class="chosen-select" size="3" name="assoc_projects[]" multiple>
+                                @foreach ($projects as $ind_project)
+                                <option value="{{$ind_project->id}}">
+                                    {{$ind_project->name}}
+                                </option>
+                                @endforeach
+                            </select>
+                        </td>
+                        @endif
+                        -->
                         <td>
                             <button form="newInvoice" class="pure-button pure-button-primary">Issue Invoice</button>
                         </td>
