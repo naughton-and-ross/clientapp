@@ -84,7 +84,16 @@
             {{$client->client_id}}<span>&middot;</span>{{$client->public_id}}<span>&middot;</span>Managed by <strong>{{$client->user->name}}</strong>
         </p>
         <p class="details">
-            {{$client->industry}}<span>&middot;</span>Contact <strong>{{$client->contact_name}}</strong>
+            {{$client->industry}}
+            <span>&middot;</span>
+            Contact
+            <strong class="hint--bottom hint--rounded" data-hint="
+            @if (!empty($client->contact_email))
+            {{$client->contact_email}}
+            @elseif (!empty($client->contact_phone))
+            {{$client->contact_phone}}
+            @endif
+            ">{{$client->contact_name}}</strong>
         </p>
         @endif
         @endif
