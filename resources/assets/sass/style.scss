@@ -69,6 +69,20 @@ select {
    border-color: $details-colour;
 }
 
+.progress_bar_wrap {
+    width: 90%;
+    height: 0.3em;
+    background-color: #ECECEC;
+    border-radius: 3px;
+
+    .progress_bar {
+        height: 100%;
+        background-color: $green-status-colour;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+}
+
 .button-green,
 .button-red,
 .button-orange,
@@ -282,7 +296,7 @@ select {
         }
         #hor-minimalist-a
         {
-        	font-size: 12px;
+        	font-size: 13px;
         	background: #fff;
         	border-collapse: collapse;
         	text-align: left;
