@@ -50,6 +50,42 @@ class Invoice extends Model
                      ->where('paid_at', '<=', $month_ago);
     }
 
+    public function scopePaidThisCalenderYear($query)
+    {
+        $start_of_year = Carbon::now()->startOfYear();
+
+        return $query->paid()
+                     ->where('paid_at', '>=', $start_of_year);
+    }
+
+    public function scopePaidLastCalenderYear($query)
+    {
+        $start_of_year = Carbon::now()->startOfYear()->subYear(1);
+        $end_of_year = Carbon::now()->endOfYear()->subYear(1);
+
+        return $query->paid()
+                     ->where('paid_at', '>=', $start_of_year)
+                     ->where('paid_at', '<=', $end_of_year);
+    }
+
+    public function scopePaidThisFinancialYear($query)
+    {
+        $start_of_year = Carbon::now()->startOfYear()->addMonths(7);
+
+        return $query->paid()
+                     ->where('paid_at', '>=', $start_of_year);
+    }
+
+    public function scopePaidLastFinancialYear($query)
+    {
+        $start_of_year = Carbon::now()->startOfYear()->subMonths(5);
+        $end_of_year = Carbon::now()->startOfYear()->addMonths(7);
+
+        return $query->paid()
+                     ->where('paid_at', '>=', $start_of_year)
+                     ->where('paid_at', '<=', $end_of_year);
+    }
+
     public function HumanDueDate($due_date)
     {
         $due_date = Carbon::parse($due_date);
