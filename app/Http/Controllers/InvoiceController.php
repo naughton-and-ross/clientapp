@@ -105,15 +105,21 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //return $request->input('form_data');
-        $invoice = Invoice::find($id);
-        $invoice->update($request->input('form_data'));
-        if ($request->input('form_data')['is_paid'] == true) {
-            $invoice->paid_at = Carbon::now();
-        }
-        $invoice->save();
+        if ($request->ajax()) {
+            $invoice = Invoice::findOrFail($id);
+            $invoice->update($request->input('form_data'));
+            if ($request->input('form_data')['is_paid'] == true) {
+                $invoice->paid_at = Carbon::now();
+            }
+            $invoice->save();
+        } else {
+            $input = Input::all();
+            $invoice = Invoice::findOrFail($id);
+            $invoice->update($input);
+            $invoice->save();
 
-        return $invoice;
+            return redirect('invoices/'.$invoice->id);
+        }
     }
 
     /**
