@@ -131,7 +131,7 @@
                     <form id="newInvoice" method="post" enctype="multipart/form-data" action="/api/clients/{{$client->id}}/invoices">
                         <td><input form="newInvoice" type="date" name="issue_date" v-model="invoice_data.issue_date" value="{{date('Y-m-d')}}"></td>
                         <td>$<input form="newInvoice" type-"number" name="amount" v-model="invoice_data.amount" placeholder="Invoice amount"></td>
-                        <td><input form="newInvoice" type="date" name="due_date" v-model="invoice_data.due_date" min="{{date('Y-m-d')}}"></td>
+                        <td><input form="newInvoice" type="date" name="due_date" v-model="invoice_data.due_date"></td>
                         <!--
                         @if (count($projects) > 0)
                         <td>
