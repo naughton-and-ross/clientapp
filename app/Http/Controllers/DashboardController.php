@@ -26,12 +26,17 @@ class DashboardController extends Controller
         $overdue_invoices = Invoice::overdue()->get();
         $thirty_day_invocies = Invoice::paidInLastThirtyDays()->get();
         $previous_thirty_day_invocies = Invoice::paidInPreviousThirtyDays()->get();
+        $this_year_invoices = Invoice::paidThisCalenderYear()->get();
+        $last_year_invoices = Invoice::paidLastCalenderYear()->get();
         $active_total = $active_invoices->sum('amount');
         $overdue_total = $overdue_invoices->sum('amount');
         $thirty_day_total = $thirty_day_invocies->sum('amount');
         $previous_thirty_day_total = $previous_thirty_day_invocies->sum('amount');
+        $this_year_total = $this_year_invoices->sum('amount');
+        $last_year_total = $last_year_invoices->sum('amount');
 
         $position_difference = $thirty_day_total - $previous_thirty_day_total;
+        $year_difference_percent = $this_year_total / $last_year_total * 100;
 
         foreach ($active_invoices as $invoice) {
             $invoice->client_id = $invoice->client_id + 999;
@@ -57,7 +62,10 @@ class DashboardController extends Controller
             'overdue_total'             => $overdue_total,
             'thirty_day_total'          => $thirty_day_total,
             'previous_thirty_day_total' => $previous_thirty_day_total,
+            'this_year_total'           => $this_year_total,
+            'last_year_total'           => $last_year_total,
             'position_diffeence'        => $position_difference,
+            'year_difference_percent'   => $year_difference_percent,
             'active_invoices'           => $active_invoices
         ]);
     }
