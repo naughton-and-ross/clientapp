@@ -40,10 +40,24 @@
     <div class="pure-u-6-24 actions">
         <div class="l-box">
             <p class="subheading">
-                Details
+                Details <i class="fa fa-plus-square-o" @click="addInvoiceDetails"></i>
             </p>
+            <div class="project_box new_project_box" v-if="add_invoice_details">
+                <div class="l-box">
+                    <form method="post" action="/invoices/{{$invoice->id}}">
+                        {{ method_field('PUT') }}
+                        <p>
+                            <input type="text" class="details" placeholder="@if (!empty($invoice->summary)) Update @endif Invoice details" name="summary">
+                        </p>
+                        <p class="details">
+                            <button class="pure-button pure-button-primary">Comment</button>
+                            <a class="pure-button" @click="cancelAddInvoiceDetails">Cancel</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
             <p>
-                Invoice covering initial project establishment costs and a 10% deposit.
+                {{$invoice->summary}}
             </p>
             <p>
                 This invoice for <strong>${{number_format($invoice->amount, 2)}}</strong>, issued to <strong>{{$invoice->client->name}}</strong> on <strong>{{date('F jS, Y', strtotime($invoice->issue_date))}}</strong>, will be due <strong>{{$invoice->due_date_human}}</strong>.

@@ -2,7 +2,7 @@
     <div class="pure-u-1 banner">
         <div class="l-box">
             <p>
-                Naughton & Ross ClientApp
+                <i class="fa fa-pie-chart"></i> Naughton & Ross ClientApp
             </p>
         </div>
     </div>
