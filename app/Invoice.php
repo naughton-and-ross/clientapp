@@ -70,7 +70,7 @@ class Invoice extends Model
 
     public function scopePaidThisFinancialYear($query)
     {
-        $start_of_year = Carbon::now()->startOfYear()->addMonths(7);
+        $start_of_year = Carbon::now()->startOfYear()->subMonths(5);
 
         return $query->paid()
                      ->where('paid_at', '>=', $start_of_year);
@@ -78,8 +78,9 @@ class Invoice extends Model
 
     public function scopePaidLastFinancialYear($query)
     {
-        $start_of_year = Carbon::now()->startOfYear()->subMonths(5);
-        $end_of_year = Carbon::now()->startOfYear()->addMonths(7);
+        $start_of_year = Carbon::now()->startOfYear()->subYears(1)->subMonths(5);
+        $end_of_year = Carbon::now()->startOfYear()->subMonths(5);
+
 
         return $query->paid()
                      ->where('paid_at', '>=', $start_of_year)
