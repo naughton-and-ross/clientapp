@@ -95,7 +95,7 @@
                     <div class="pure-u-19-24 activity_info">
                         <div class="l-box">
                             <p class="activity_title">
-                                Project Completed
+                                Project Complete
                             </p>
                         </div>
                     </div>
