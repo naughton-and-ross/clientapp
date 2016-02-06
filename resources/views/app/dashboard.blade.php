@@ -136,26 +136,41 @@
             <div class="pure-u-8-24">
                 <div class="l-box">
                     <p class="subheading">
-                        So Far This Year:
+                        This Year:
                     </p>
                     <p class="highlight">
                         ${{number_format($this_year_total)}}
                     </p>
                     <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($year_difference_percent)}}% towards beating last year's total of ${{number_format($last_year_total)}}">
-                        <div class="progress_bar" style="width: {{$year_difference_percent}}%">
+                        <div class="progress_bar" style="width:
+                        @if ($year_difference_percent > 100)
+                        100%
+                        @else
+                        {{$year_difference_percent}}%
+                        @endif
+                        ">
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="pure-u-7-24">
+            <div class="pure-u-8-24">
                 <div class="l-box">
                     <p class="subheading">
-
+                        This Financial Year:
                     </p>
                     <p class="highlight">
-
+                        ${{number_format($this_financial_year_total)}}
                     </p>
+                    <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($financial_year_difference_percent)}}% towards beating last year's total of ${{number_format($last_financial_year_total)}}">
+                        <div class="progress_bar" style="width:
+                        @if ($financial_year_difference_percent > 100)
+                        100%
+                        @else
+                        {{$financial_year_difference_percent}}%
+                        @endif
+                        ">
+                    </div>
                 </div>
             </div>
             <div class="pure-u-9-24">
