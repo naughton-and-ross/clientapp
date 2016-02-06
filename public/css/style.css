@@ -15,7 +15,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   background-color: white;
-  padding-bottom: 2em; }
+  padding-bottom: 2em;
+  margin-bottom: 10em; }
 
 .l-box {
   padding: 1em; }
