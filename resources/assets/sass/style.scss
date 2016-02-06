@@ -77,6 +77,7 @@ select {
 
     .progress_bar {
         height: 100%;
+        max-width: 100%;
         background-color: $green-status-colour;
         border-radius: 3px;
     }
@@ -157,6 +158,10 @@ select {
     &.red {
         background-color: $red-status-colour;
     }
+}
+
+.hint--rounded {
+    cursor: pointer;;
 }
 
 .clientapp {

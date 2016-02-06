@@ -54,6 +54,7 @@ select {
   border-radius: 3px; }
   .progress_bar_wrap .progress_bar {
     height: 100%;
+    max-width: 100%;
     background-color: #3fc649;
     border-radius: 3px; }
 
@@ -120,6 +121,9 @@ select {
     background-color: #f1c40f; }
   .client_status.red {
     background-color: #f03d3d; }
+
+.hint--rounded {
+  cursor: pointer; }
 
 .clientapp .banner {
   background-color: #f5f4f4; }
