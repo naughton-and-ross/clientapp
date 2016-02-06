@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Invoice extends Model
 {
-    protected $fillable = ['is_paid'];
+    protected $fillable = ['is_paid', 'summary'];
 
     public function client() {
         return $this->belongsTo('App\Client');
