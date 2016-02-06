@@ -66,7 +66,8 @@
                 <input type="hidden" name="is_paid" value="0">
                 <button class="pure-button button-yellow">Mark as Unpaid</button>
             </form>
-            <form method="post" @submit.prevent="deleteInvoice({{$invoice->id}})">
+            <form method="post" action="/invoices/{{$invoice->id}}">
+                {{ method_field('DELETE') }}
                 <input type="hidden" name="is_paid" value="0">
                 <button class="pure-button button-red">Delete Invoice</button>
             </form>

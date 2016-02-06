@@ -56,7 +56,7 @@ class QuoteController extends Controller
 
         $quote->save();
 
-        return return redirect('clients/'.$client_id);
+        return redirect('clients/'.$client_id);
     }
 
     /**
@@ -118,6 +118,9 @@ class QuoteController extends Controller
     public function destroy($id)
     {
         $quote = Quote::findOrFail($id);
+        $client_id = $quote->client_id;
         $quote->delete();
+
+        return redirect('clients/'.$client_id);
     }
 }

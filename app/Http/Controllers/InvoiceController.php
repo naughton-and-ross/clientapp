@@ -125,6 +125,9 @@ class InvoiceController extends Controller
     public function destroy($id)
     {
         $invoice = Invoice::findOrFail($id);
+        $client_id = $invoice->client_id;
         $invoice->delete();
+
+        return redirect('clients/'.$client_id);
     }
 }

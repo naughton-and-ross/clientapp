@@ -57,7 +57,8 @@
                 <input type="hidden" name="is_paid" value="0">
                 <button class="pure-button button-red">Mark as Rejected</button>
             </form>
-            <form method="post" @submit.prevent="deleteQuote({{$quote->id}})">
+            <form method="post" action="/quotes/{{$quote->id}}">
+                {{ method_field('DELETE') }}
                 <input type="hidden" name="is_paid" value="0">
                 <button class="pure-button button-red">Delete Quote</button>
             </form>
