@@ -49,6 +49,7 @@ class APIController extends Controller
 
     public function testMailQueue()
     {
+        $data = ['key' => 'value'];
         Mail::queue('emails.test', $data, function ($message) {
             $message->to('william.gravette@gmail.com');
         });
