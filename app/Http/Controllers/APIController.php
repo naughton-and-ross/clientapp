@@ -11,6 +11,7 @@ use Auth;
 use App\Client;
 use App\Project;
 use Input;
+use Mail;
 
 class APIController extends Controller
 {
