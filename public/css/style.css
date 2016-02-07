@@ -55,8 +55,13 @@ select {
   .progress_bar_wrap .progress_bar {
     height: 100%;
     max-width: 100%;
-    background-color: #3fc649;
     border-radius: 3px; }
+    .progress_bar_wrap .progress_bar.progress_bar--red {
+      background-color: #f03d3d; }
+    .progress_bar_wrap .progress_bar.progress_bar--yellow {
+      background-color: #f1c40f; }
+    .progress_bar_wrap .progress_bar.progress_bar--green {
+      background-color: #3fc649; }
 
 .button-green,
 .button-red,

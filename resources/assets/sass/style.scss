@@ -78,8 +78,17 @@ select {
     .progress_bar {
         height: 100%;
         max-width: 100%;
-        background-color: $green-status-colour;
         border-radius: 3px;
+
+        &.progress_bar--red {
+            background-color: $red-status-colour;
+        }
+        &.progress_bar--yellow {
+            background-color: $yellow-status-colour;
+        }
+        &.progress_bar--green {
+            background-color: $green-status-colour;
+        }
     }
 }
 

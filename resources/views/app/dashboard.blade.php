@@ -142,7 +142,7 @@
                         ${{number_format($this_year_total)}}
                     </p>
                     <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($year_difference_percent)}}% towards beating last year's total of ${{number_format($last_year_total)}}">
-                        <div class="progress_bar" style="width: {{$year_difference_percent}}%">
+                        <div class="progress_bar progress_bar--green" style="width: {{$year_difference_percent}}%">
 
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                         ${{number_format($this_financial_year_total)}}
                     </p>
                     <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($financial_year_difference_percent)}}% towards beating last year's total of ${{number_format($last_financial_year_total)}}">
-                        <div class="progress_bar" style="width: {{$financial_year_difference_percent}}%">
+                        <div class="progress_bar progress_bar--green" style="width: {{$financial_year_difference_percent}}%">
                     </div>
                 </div>
             </div>
