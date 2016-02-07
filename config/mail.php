@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'notifications@ca.n-r.co', 'name' => 'ClientApp Notifications'],
 
     /*
     |--------------------------------------------------------------------------

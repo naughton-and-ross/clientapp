@@ -11,6 +11,8 @@ use App\Client;
 use App\Invoice;
 use Carbon\Carbon;
 
+use Mail;
+
 class DashboardController extends Controller
 {
     public function renderDashboard()
