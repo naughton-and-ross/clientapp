@@ -55,4 +55,5 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function() {
     Route::post('projects/{id}/updates', 'ProjectUpdateController@store');
     Route::post('projects/{id}/activity', 'ProjectActivityController@store');
     Route::post('return', 'APIController@returnReuqest');
+    Route::get('test-email', 'APIController@testMailQueue');
 });

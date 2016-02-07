@@ -45,4 +45,13 @@ class APIController extends Controller
         $input = Input::all();
         return $input;
     }
+
+    public function testMailQueue()
+    {
+        Mail::queue('emails.test', $data, function ($message) {
+            $message->to('william.gravette@gmail.com');
+        });
+
+        return "queued";
+    }
 }
