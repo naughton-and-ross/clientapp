@@ -5,6 +5,10 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+use DB;
+use App\User;
+use Carbon\Carbon;
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -24,7 +28,16 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('inspire')
-                 ->hourly();
+        $schedule->call(function () {
+            $users = User::all();
+
+            foreach ($users as $user) {
+                DB::table('request_log')->insert([
+                    'user_id' => $user->id,
+                    'request_count' => 0,
+                    'log_date' => Carbon::now()->startOfDay()
+                ]);
+            }
+        })->everyMinute();
     }
 }

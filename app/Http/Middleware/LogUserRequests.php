@@ -4,6 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 
+use DB;
+use Carbon\Carbon;
+
 class LogUserRequests
 {
     /**
@@ -15,6 +18,10 @@ class LogUserRequests
      */
     public function handle($request, Closure $next)
     {
+        $user = $request->user();
+        $now = Carbon::now()->startOfDay();
+
+        DB::table('request_log')->where('user_id', $user->id)->where('log_date', $now)->increment('request_count');
         return $next($request);
     }
 }
