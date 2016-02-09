@@ -22,7 +22,7 @@ Route::group(['prefix' => 'styles'], function() {
 });
 
 // Aplication routes...
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => ['auth', 'log']], function() {
     Route::get('dashboard', 'DashboardController@renderDashboard');
     Route::resource('clients','ClientController');
     Route::resource('projects', 'ProjectController');
