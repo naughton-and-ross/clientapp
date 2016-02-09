@@ -27,4 +27,19 @@ class ProjectActivity extends Model
     {
         return $query->orderBy('created_at', 'desc');
     }
+
+    protected static function boot() {
+        parent::boot();
+
+        static::created(function($project_activity) {
+             $project_activity->user_activity()->create([
+                 'user_id' => $project_activity->user_id,
+                 'activity_type' => 'project_activity'
+             ]);
+        });
+
+        static::deleting(function($project_activity) {
+             $project_activity->user_activity()->delete();
+        });
+    }
 }

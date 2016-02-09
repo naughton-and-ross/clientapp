@@ -31,4 +31,19 @@ class Project extends Model
     {
         return $this->hasOne('App\UserActivity');
     }
+
+    protected static function boot() {
+        parent::boot();
+
+        static::created(function($project) {
+             $project->user_activity()->create([
+                 'user_id' => $project->user_id,
+                 'activity_type' => 'project'
+             ]);
+        });
+
+        static::deleting(function($project) {
+             $project->user_activity()->delete();
+        });
+    }
 }

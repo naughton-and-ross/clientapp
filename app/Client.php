@@ -28,4 +28,19 @@ class Client extends Model
     {
         return $this->hasOne('App\UserActivity');
     }
+
+    protected static function boot() {
+        parent::boot();
+
+        static::created(function($client) {
+             $client->user_activity()->create([
+                 'user_id' => $client->user_id,
+                 'activity_type' => 'client'
+             ]);
+        });
+
+        static::deleting(function($client) {
+             $client->user_activity()->delete();
+        });
+    }
 }

@@ -4,14 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Auth;
 use Carbon\Carbon;
 
 class Invoice extends Model
 {
     protected $fillable = ['is_paid', 'summary'];
 
-    public function client() {
+    public function client()
+    {
         return $this->belongsTo('App\Client');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 
     public function user_activity()
@@ -96,5 +103,20 @@ class Invoice extends Model
     {
         $due_date = Carbon::parse($due_date);
         return $due_date->diffForHumans();
+    }
+
+    protected static function boot() {
+        parent::boot();
+
+        static::created(function($invoice) {
+             $invoice->user_activity()->create([
+                'user_id' => $invoice->user_id,
+                'activity_type' => 'invoice'
+             ]);
+        });
+
+        static::deleting(function($invoice) {
+             $invoice->user_activity()->delete();
+        });
     }
 }

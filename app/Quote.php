@@ -17,4 +17,19 @@ class Quote extends Model
     {
         return $this->hasOne('App\UserActivity');
     }
+
+    protected static function boot() {
+        parent::boot();
+
+        static::created(function($quote) {
+             $quote->user_activity()->create([
+                 'user_id' => $quote->user_id,
+                 'activity_type' => 'quote'
+             ]);
+        });
+
+        static::deleting(function($quote) {
+             $quote->user_activity()->delete();
+        });
+    }
 }

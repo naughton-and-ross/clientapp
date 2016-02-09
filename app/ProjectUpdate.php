@@ -27,4 +27,19 @@ class ProjectUpdate extends Model
     {
         return $query->orderBy('created_at', 'DESC');
     }
+
+    protected static function boot() {
+        parent::boot();
+
+        static::created(function($project_update) {
+             $project_update->user_activity()->create([
+                 'user_id' => $project_update->user_id,
+                 'activity_type' => 'project_update'
+             ]);
+        });
+
+        static::deleting(function($project_update) {
+             $project_update->user_activity()->delete();
+        });
+    }
 }
