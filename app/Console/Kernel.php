@@ -38,6 +38,6 @@ class Kernel extends ConsoleKernel
                     'log_date' => Carbon::now()->startOfDay()
                 ]);
             }
-        })->everyMinute();
+        })->daily();
     }
 }
