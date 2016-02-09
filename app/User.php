@@ -45,4 +45,10 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('App\ProjectUpdate');
     }
+
+    public function activities()
+    {
+        return $this->hasMany('App\UserActivity');
+    }
+
 }

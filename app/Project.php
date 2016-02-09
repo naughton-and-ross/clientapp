@@ -26,4 +26,9 @@ class Project extends Model
     {
         return $this->hasMany('App\ProjectActivity');
     }
+
+    public function user_activity()
+    {
+        return $this->hasOne('App\UserActivity');
+    }
 }

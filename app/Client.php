@@ -23,4 +23,9 @@ class Client extends Model
     public function quotes() {
         return $this->hasMany('App\Quote');
     }
+
+    public function user_activity()
+    {
+        return $this->hasOne('App\UserActivity');
+    }
 }

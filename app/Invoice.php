@@ -14,6 +14,11 @@ class Invoice extends Model
         return $this->belongsTo('App\Client');
     }
 
+    public function user_activity()
+    {
+        return $this->hasOne('App\UserActivity');
+    }
+
     public function scopePaid($query)
     {
         return $query->where('is_paid', '1');
