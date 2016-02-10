@@ -132,12 +132,14 @@
             </div>
             <div class="pure-u-8-24">
                 <div class="l-box">
+                    <!--
                     <p class="subheading">
                         Your Activity on CA:
                     </p>
                     <p class="highlight">
 
                     </p>
+                    -->
                 </div>
             </div>
             <div class="pure-u-1 invoices">
