@@ -49,9 +49,9 @@
             @endif
         </div>
     </div>
-    <div class="pure-u-13-24 data">
+    <div class="pure-u-16-24 data">
         <div class="pure-g">
-            <div class="pure-u-8-24">
+            <div class="pure-u-7-24">
                 <div class="l-box">
                     <p class="subheading">
                         Total Outstanding:
@@ -86,6 +86,42 @@
                         @endif
                         ${{number_format(abs($position_diffeence))}}
                         </span>
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-7-24">
+                <div class="l-box">
+                    <p class="subheading">
+                        This Year:
+                    </p>
+                    <p class="highlight">
+                        ${{number_format($this_year_total)}}
+                    </p>
+                    <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($year_difference_percent)}}% towards beating last year's total of ${{number_format($last_year_total)}}">
+                        <div class="progress_bar progress_bar--green" style="width: {{$year_difference_percent}}%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pure-u-7-24">
+                <div class="l-box">
+                    <p class="subheading">
+                        This Financial Year:
+                    </p>
+                    <p class="highlight">
+                        ${{number_format($this_financial_year_total)}}
+                    </p>
+                    <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($financial_year_difference_percent)}}% towards beating last year's total of ${{number_format($last_financial_year_total)}}">
+                        <div class="progress_bar progress_bar--green" style="width: {{$financial_year_difference_percent}}%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pure-u-8-24">
+                <div class="l-box">
+                    <p class="subheading">
+                        Financial Year Projected:
+                    </p>
+                    <p class="highlight">
+                        ${{number_format($projected_fy_earnings)}}
                     </p>
                 </div>
             </div>
@@ -131,44 +167,6 @@
                         @endforeach
                         @endif
                     </table>
-                </div>
-            </div>
-            <div class="pure-u-8-24">
-                <div class="l-box">
-                    <p class="subheading">
-                        This Year:
-                    </p>
-                    <p class="highlight">
-                        ${{number_format($this_year_total)}}
-                    </p>
-                    <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($year_difference_percent)}}% towards beating last year's total of ${{number_format($last_year_total)}}">
-                        <div class="progress_bar progress_bar--green" style="width: {{$year_difference_percent}}%">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pure-u-8-24">
-                <div class="l-box">
-                    <p class="subheading">
-                        This Financial Year:
-                    </p>
-                    <p class="highlight">
-                        ${{number_format($this_financial_year_total)}}
-                    </p>
-                    <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($financial_year_difference_percent)}}% towards beating last year's total of ${{number_format($last_financial_year_total)}}">
-                        <div class="progress_bar progress_bar--green" style="width: {{$financial_year_difference_percent}}%">
-                    </div>
-                </div>
-            </div>
-            <div class="pure-u-9-24">
-                <div class="l-box">
-                    <p class="subheading">
-
-                    </p>
-                    <p class="highlight">
-
-                    </p>
                 </div>
             </div>
         </div>

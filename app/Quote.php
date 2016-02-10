@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Quote extends Model
 {
     protected $fillable = ['is_accepted', 'is_rejected'];
@@ -16,6 +18,18 @@ class Quote extends Model
     public function user_activity()
     {
         return $this->hasOne('App\UserActivity');
+    }
+
+    public function scopeAccepted($query)
+    {
+        return $query->where('is_accepted', '1');
+    }
+
+    public function scopeIssuedThisFinancialYear($query)
+    {
+        $start_of_year = Carbon::now()->startOfYear()->subMonths(5);
+
+        return $query->where('issue_date', '>=', $start_of_year);
     }
 
     protected static function boot() {

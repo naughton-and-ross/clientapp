@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Client;
 use App\Invoice;
+use App\Quote;
 use Carbon\Carbon;
 
 use Mail;
@@ -41,9 +42,13 @@ class DashboardController extends Controller
         $this_financial_year_total = $this_financial_year_invoices->sum('amount');
         $last_financial_year_total = $last_financial_year_invoices->sum('amount');
 
+        $accepted_quotes = Quote::issuedThisFinancialYear()->accepted()->get();
+        $accepted_quotes_total = $accepted_quotes->sum('amount');
+
         $position_difference = $thirty_day_total - $previous_thirty_day_total;
         $year_difference_percent = $this_year_total / $last_year_total * 100;
         $financial_year_difference_percent = $this_financial_year_total / $last_financial_year_total * 100;
+        $projected_fy_earnings = $this_financial_year_total + $accepted_quotes_total;
 
         foreach ($active_invoices as $invoice) {
             $invoice->client_id = $invoice->client_id + 999;
@@ -76,6 +81,7 @@ class DashboardController extends Controller
             'position_diffeence'                  => $position_difference,
             'year_difference_percent'             => $year_difference_percent,
             'financial_year_difference_percent'   => $financial_year_difference_percent,
+            'projected_fy_earnings'               => $projected_fy_earnings,
             'active_invoices'                     => $active_invoices
         ]);
     }
