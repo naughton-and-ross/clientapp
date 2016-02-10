@@ -8,6 +8,10 @@
     src: url('/fonts/SanFranciscoDisplay-Regular.otf');
 }
 
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
 $app-width: 1200px;
 $green-status-colour: #3fc649;
 $yellow-status-colour: #f1c40f;
@@ -27,6 +31,7 @@ body {
     background-color: white;
     padding-bottom: 4em;
     margin-bottom: 10em;
+    transition: all .3s ease;
 }
 
 .l-box {
@@ -79,6 +84,8 @@ select {
         height: 100%;
         max-width: 100%;
         border-radius: 3px;
+        position: absolute;
+        z-index: 10;
 
         &.progress_bar--red {
             background-color: $red-status-colour;
@@ -88,6 +95,17 @@ select {
         }
         &.progress_bar--green {
             background-color: $green-status-colour;
+        }
+
+        &.progress_bar--estimate {
+            z-index: 5;
+            background: repeating-linear-gradient(
+            -55deg,
+            #ECECEC,
+            #ECECEC 5px,
+            tint($green-status-colour, 40%) 5px,
+            tint($green-status-colour, 40%) 10px
+          );;
         }
     }
 }
@@ -389,4 +407,19 @@ select {
             display: inline;
         }
     }
+}
+
+
+/* always present */
+.expand-transition {
+  transition: all .3s ease;
+  overflow: hidden;
+}
+
+/* .expand-enter defines the starting state for entering */
+/* .expand-leave defines the ending state for leaving */
+.expand-enter, .expand-leave {
+  opacity: 0;
+  background-color: $details-colour;
+  transition: all .3s ease;
 }

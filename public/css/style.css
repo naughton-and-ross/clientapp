@@ -16,7 +16,8 @@ body {
   margin: 0 auto;
   background-color: white;
   padding-bottom: 4em;
-  margin-bottom: 10em; }
+  margin-bottom: 10em;
+  transition: all .3s ease; }
 
 .l-box {
   padding: 1em; }
@@ -55,13 +56,18 @@ select {
   .progress_bar_wrap .progress_bar {
     height: 100%;
     max-width: 100%;
-    border-radius: 3px; }
+    border-radius: 3px;
+    position: absolute;
+    z-index: 10; }
     .progress_bar_wrap .progress_bar.progress_bar--red {
       background-color: #f03d3d; }
     .progress_bar_wrap .progress_bar.progress_bar--yellow {
       background-color: #f1c40f; }
     .progress_bar_wrap .progress_bar.progress_bar--green {
       background-color: #3fc649; }
+    .progress_bar_wrap .progress_bar.progress_bar--estimate {
+      z-index: 5;
+      background: repeating-linear-gradient(-55deg, #ECECEC, #ECECEC 5px, #8cdd92 5px, #8cdd92 10px); }
 
 .button-green,
 .button-red,
@@ -247,5 +253,17 @@ select {
 
 .criticals .actions form {
   display: inline; }
+
+/* always present */
+.expand-transition {
+  transition: all .3s ease;
+  overflow: hidden; }
+
+/* .expand-enter defines the starting state for entering */
+/* .expand-leave defines the ending state for leaving */
+.expand-enter, .expand-leave {
+  opacity: 0;
+  background-color: #b3b3b3;
+  transition: all .3s ease; }
 
 /*# sourceMappingURL=style.css.map */
