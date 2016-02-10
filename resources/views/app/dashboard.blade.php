@@ -3,9 +3,23 @@
 <div class="pure-g criticals">
     <div class="pure-u-8-24 projects">
         <div class="l-box">
-            <p class="subheading">
-                Active Clients <i class="fa fa-plus-square-o" @click="addClient"></i>
-            </p>
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <p class="subheading">
+                        <span v-if="show_all_clients">All Clients</span><span v-if="!show_all_clients">Active Clients</span> <i class="fa fa-plus-square-o" @click="addClient"></i>
+                    </p>
+                </div>
+                <div class="pure-u-4-24"></div>
+                <div class="pure-u-6-24">
+                    <p class="subheading">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" @click="toggleClientView">
+                            <label class="onoffswitch-label" for="myonoffswitch"></label>
+                        </div>
+                    </p>
+                </div>
+            </div>
+
             <div class="project_box new_project_box" v-if="client_add" transition="expand">
                 <div class="l-box">
                     <form method="post" action="/clients">
@@ -40,7 +54,7 @@
                 </p>
             @else
             @foreach ($clients as $ind_client)
-            <p>
+            <p @if ($ind_client->status !== "active") v-if="show_all_clients" transition="expand" @endif >
                 <a href="{{url('clients')}}/{{$ind_client->id}}">
                     <strong>{{$ind_client->client_id}} &#8212; </strong>{{$ind_client->name}}
                 </a>
@@ -110,18 +124,19 @@
                     <p class="highlight">
                         ${{number_format($this_financial_year_total)}}
                     </p>
-                    <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($financial_year_difference_percent)}}% towards beating last year's total of ${{number_format($last_financial_year_total)}}">
+                    <div class="progress_bar_wrap hint--bottom hint--rounded" data-hint="{{floor($financial_year_difference_percent)}}% towards beating last year's total of ${{number_format($last_financial_year_total)}} &#10; ({{floor($projected_fy_earnings_percent)}}% with projection)">
                         <div class="progress_bar progress_bar--green" style="width: {{$financial_year_difference_percent}}%"></div>
+                        <div class="progress_bar progress_bar--yellow progress_bar--estimate" style="width: {{$projected_fy_earnings_percent}}%"></div>
                     </div>
                 </div>
             </div>
             <div class="pure-u-8-24">
                 <div class="l-box">
                     <p class="subheading">
-                        Financial Year Projected:
+                        Your Activity on CA:
                     </p>
                     <p class="highlight">
-                        ${{number_format($projected_fy_earnings)}}
+
                     </p>
                 </div>
             </div>
