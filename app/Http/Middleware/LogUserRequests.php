@@ -22,6 +22,7 @@ class LogUserRequests
         $now = Carbon::now()->startOfDay();
 
         DB::table('request_log')->where('user_id', $user->id)->where('log_date', $now)->increment('request_count');
+        
         return $next($request);
     }
 }
