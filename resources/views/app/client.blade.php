@@ -1,5 +1,9 @@
 @extends('app.template')
 @section('content')
+<script>
+    var client_id = {{$client->id}}
+    var status = {{$client->status}}
+</script>
 <div class="pure-g criticals">
     <div class="pure-u-8-24 projects">
         <div class="l-box">
@@ -296,5 +300,28 @@
     -->
     </div>
 </div>
+<div class="pure-g criticals">
+    <div class="pure-u-14-24 actions">
+        <div class="l-box">
+            <p class="subheading">
+                Actions
+            </p>
+            @if ($client->status == "active")
+            <form method="post">
+                {{ method_field('PUT') }}
+                <input type="hidden" value="inactive" name="status">
+                <button class="pure-button button-red">Mark as Inactive</button>
+            </form>
+            @elseif ($client->status == "inactive")
+            <form method="post">
+                {{ method_field('PUT') }}
+                <input type="hidden" value="active" name="status">
+                <button class="pure-button button-green">Mark as Active</button>
+            </form>
+            @endif
+        </div>
+    </div>
+</div>
+<script s
 <script src="{{asset('js/vue/clients.js')}}"></script>
 @endsection

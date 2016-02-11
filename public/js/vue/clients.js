@@ -19,6 +19,8 @@ new Vue({
             amount: '',
             due_date: ''
         },
+        client_id: client_id,
+        status: status
     },
     methods: {
         fetchInvoicesList: function() {
@@ -49,6 +51,14 @@ new Vue({
         }, function (response) {
             alert('its fucked');
         });
-      }
+    },
+    markClientInactive: function(client_id) {
+        var client = this.$resource('/clients/:id');
+        invoice.update({id: client_id}, {form_data: this.client_data}).then(function (response) {
+            this.is_active = 1;
+      }.bind(this), function (response) {
+          alert('its fucked');
+      });
+  },
     }
 });

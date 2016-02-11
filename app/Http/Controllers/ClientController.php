@@ -11,6 +11,7 @@ use Auth;
 use Carbon\Carbon;
 use App\Client;
 use App\Invoice;
+use Input;
 
 class ClientController extends Controller
 {
@@ -132,7 +133,18 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->ajax()) {
+            $client = Client::findOrFail($id);
+            $client->update($request->input('client_data'));
+            $client->save();
+        } else {
+            $input = Input::all();
+            $client = Client::findOrFail($id);
+            $client->update($input);
+            $client->save();
+
+            return redirect('clients/'.$client->id);
+        }
     }
 
     /**

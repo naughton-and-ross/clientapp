@@ -17,7 +17,11 @@
             @endif
         </p>
         @if (!isset($project) && !isset($invoice) && !isset($quote))
+        @if ($client->status == "active")
         <div class="client_status green tooltipped tooltipped-n" aria-label="This is the tooltip."></div>
+        @elseif ($client->status == "inactive")
+        <div class="client_status grey tooltipped tooltipped-n" aria-label="This is the tooltip."></div>
+        @endif
         @endif
         @if (isset($invoice))
         <span class="upper_level">/</span>

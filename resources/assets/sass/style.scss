@@ -185,6 +185,9 @@ select {
     &.red {
         background-color: $red-status-colour;
     }
+    &.grey {
+        background-color: $details-colour;
+    }
 }
 
 .hint--rounded {
