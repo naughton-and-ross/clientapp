@@ -2,6 +2,7 @@ new Vue({
     el: '#app',
 
     data: {
+        client_add: false,
         show_all_clients: false
     },
     methods: {
