@@ -10,7 +10,7 @@
             <p class="subheading">
                 Projects <i class="fa fa-plus-square-o" @click="addProject"></i>
             </p>
-            <div class="project_box new_project_box" v-if="project_add" transition="expand">
+            <div class="project_box new_project_box" v-if="project_add">
                 <div class="l-box">
                     <form method="post" action="/api/clients/{{$client->id}}/projects">
                         <p>

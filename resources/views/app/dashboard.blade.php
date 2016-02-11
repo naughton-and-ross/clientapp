@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <div class="project_box new_project_box" v-if="client_add" transition="expand">
+            <div class="project_box new_project_box" v-if="client_add">
                 <div class="l-box">
                     <form method="post" action="/clients">
                         <p>
