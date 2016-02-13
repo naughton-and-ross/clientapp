@@ -144,12 +144,8 @@
                                 title: {
                                     enabled: false
                                 },
-                                xAxis: {
-                                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-                                },
                                 tooltip: {
-                                    valueSuffix: '°C'
+                                    valueSuffix: ' requests'
                                 },
                                 legend: {
                                     layout: 'vertical',
@@ -158,8 +154,12 @@
                                     borderWidth: 0
                                 },
                                 series: [{
-                                    name: 'Tokyo',
-                                    data: [11, 66, 25, 110]
+                                    name: 'Requests',
+                                    data: [
+                                        @foreach ($user_resuest_log as $day_log)
+                                        {{$day_log->request_count}},
+                                        @endforeach
+                                    ]
                                 }]
                             });
                         });

@@ -12,6 +12,8 @@ use App\Invoice;
 use App\Quote;
 use Carbon\Carbon;
 
+use Auth;
+use DB;
 use Mail;
 
 class DashboardController extends Controller
@@ -44,6 +46,8 @@ class DashboardController extends Controller
 
         $accepted_quotes = Quote::issuedThisFinancialYear()->accepted()->get();
         $accepted_quotes_total = $accepted_quotes->sum('amount');
+
+        $user_resuest_log = DB::table('request_log')->where('user_id', Auth::user()->id)->get();
 
         $position_difference = $thirty_day_total - $previous_thirty_day_total;
 
@@ -95,7 +99,8 @@ class DashboardController extends Controller
             'financial_year_difference_percent'   => $financial_year_difference_percent,
             'projected_fy_earnings'               => $projected_fy_earnings,
             'projected_fy_earnings_percent'       => $projected_fy_earnings_percent,
-            'active_invoices'                     => $active_invoices
+            'active_invoices'                     => $active_invoices,
+            'user_resuest_log'                    => $user_resuest_log
         ]);
     }
 }
