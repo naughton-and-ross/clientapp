@@ -18,7 +18,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="pure-u-5-24 user">
+                <div class="pure-u-5-24 user desktop">
                     <div class="l-box">
                         <p>
                             Client Login
@@ -39,8 +39,8 @@
                        </ul>
                    @endif
                     <form class="pure-form" method="post">
-                        <input type="text" name="name" placeholder="Your Name" class="pure-u-6-24" autocomplete="off" />
-                        <input type="password" name="password" placeholder="Your Password"/>
+                        <input type="text" name="name" placeholder="Your Name" class="pure-u-1 pure-u-md-6-24" autocomplete="off" />
+                        <input type="password" name="password" class="pure-u-1 pure-u-md-6-24" placeholder="Your Password"/>
                         <button type="submit" class="pure-button pure-button-primary">Login</button>
                     </form>
                 </div>

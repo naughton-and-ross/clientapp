@@ -6,7 +6,7 @@
     var is_rejected = {{$quote->is_rejected}}
 </script>
 <div class="pure-g criticals">
-    <div class="pure-u-1-3 pure-u-md-4-24">
+    <div class="pure-u-1 pure-u-md-4-24">
         <div class="l-box">
             <p>
                 Quote for:
@@ -16,7 +16,7 @@
             </p>
         </div>
     </div>
-    <div class="pure-u-1-3 pure-u-md-6-24">
+    <div class="pure-u-13-24 pure-u-md-6-24">
         <div class="l-box">
             <p>
                 Issued on:
@@ -26,7 +26,7 @@
             </p>
         </div>
     </div>
-    <div class="pure-u-1-3 pure-u-md-5-24">
+    <div class="pure-u-10-24 pure-u-md-5-24">
         <div class="l-box">
             <p>
                 Status:
