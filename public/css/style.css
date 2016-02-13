@@ -48,6 +48,19 @@ select {
   padding: 0.2em 0.4em 0.2em 0.4em;
   border-color: #b3b3b3; }
 
+@media (max-width: 767px) {
+  .desktop {
+    visibility: hidden;
+    display: none; } }
+
+@media (min-width: 768px) {
+  .mobile {
+    visibility: hidden;
+    display: none; } }
+
+.float-right {
+  float: right; }
+
 .progress_bar_wrap {
   width: 90%;
   height: 0.3em;

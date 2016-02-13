@@ -5,7 +5,7 @@
     var is_paid = {{$invoice->is_paid}}
 </script>
 <div class="pure-g criticals">
-    <div class="pure-u-4-24">
+    <div class="pure-u-1-3 pure-u-md-4-24">
         <div class="l-box">
             <p>
                 Invoice for:
@@ -15,7 +15,7 @@
             </p>
         </div>
     </div>
-    <div class="pure-u-6-24">
+    <div class="pure-u-1-3 pure-u-md-6-24">
         <div class="l-box">
             <p>
                 Issued on:
@@ -25,7 +25,7 @@
             </p>
         </div>
     </div>
-    <div class="pure-u-5-24">
+    <div class="pure-u-1-3 pure-u-md-5-24">
         <div class="l-box">
             <p>
                 Due:
@@ -37,7 +37,7 @@
     </div>
 </div>
 <div class="pure-g criticals">
-    <div class="pure-u-6-24 actions">
+    <div class="pure-u-20-24 pure-u-md-6-24 actions">
         <div class="l-box">
             <p class="subheading">
                 Details <i class="fa fa-plus-square-o" @click="addInvoiceDetails"></i>
@@ -64,10 +64,10 @@
             </p>
         </div>
     </div>
-    <div class="pure-u-2-24 spacer">
+    <div class="pure-u-2-24 spacer desktop">
 
     </div>
-    <div class="pure-u-14-24 actions">
+    <div class="pure-u-20-24 pure-u-md-14-24 actions">
         <div class="l-box">
             <p class="subheading">
                 Actions
@@ -85,7 +85,9 @@
                 <input type="hidden" name="is_paid" value="0">
                 <button class="pure-button button-red">Delete Invoice</button>
             </form>
-            <button class="pure-button">Provide Payment Extension</button>
+            <!--
+                <button class="pure-button">Provide Payment Extension</button>
+            -->
         </div>
     </div>
 </div>

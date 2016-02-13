@@ -5,7 +5,7 @@
     var is_complete = {{$project->is_complete}}
 </script>
  <div class="pure-g criticals">
-    <div class="pure-u-7-24 project_updates">
+    <div class="pure-u-20-24 pure-u-md-7-24 project_updates">
         <div class="l-box">
             <p class="subheading">
                 Project Updates <i class="fa fa-plus-square-o" @click="addProjectUpdate"></i>
@@ -41,8 +41,8 @@
             @endif
         </div>
     </div>
-    <div class="pure-u-1-24 spacer"></div>
-    <div class="pure-u-8-24 project_activity">
+    <div class="pure-u-1-24 spacer desktop"></div>
+    <div class="pure-u-1 pure-u-md-8-24 project_activity">
         <div class="l-box">
             <p class="subheading">
                 Project Activity Log <i class="fa fa-plus-square-o" @click="addProjectActivity"></i>
@@ -160,8 +160,8 @@
             </div>
         </div>
     </div>
-    <div class="pure-u-1-24 spacer"></div>
-    <div class="pure-u-7-24 project_files">
+    <div class="pure-u-1-24 spacer desktop"></div>
+    <div class="pure-u-7-24 project_files desktop">
         <div class="l-box">
             <p class="subheading">
                 Project Files <i class="fa fa-plus-square-o" @click="addProjectFile"></i>

@@ -1,7 +1,7 @@
 @extends('app.template')
 @section('content')
 <div class="pure-g criticals">
-    <div class="pure-u-8-24 projects">
+    <div class="pure-u-1 pure-u-md-8-24 projects">
         <div class="l-box">
             <div class="pure-g">
                 <div class="pure-u-1-2">
@@ -63,9 +63,9 @@
             @endif
         </div>
     </div>
-    <div class="pure-u-16-24 data">
+    <div class="pure-u-1 pure-u-md-16-24 data">
         <div class="pure-g">
-            <div class="pure-u-7-24">
+            <div class="pure-u-1-2 pure-u-md-7-24">
                 <div class="l-box">
                     <p class="subheading">
                         Total Outstanding:
@@ -75,7 +75,7 @@
                     </p>
                 </div>
             </div>
-            <div class="pure-u-7-24">
+            <div class="pure-u-1-2 pure-u-md-7-24">
                 <div class="l-box">
                     <p class="subheading">
                         Total Overdue:
@@ -85,7 +85,7 @@
                     </p>
                 </div>
             </div>
-            <div class="pure-u-9-24">
+            <div class="pure-u-1 pure-u-md-9-24">
                 <div class="l-box">
                     <p class="subheading">
                         30-day Position:
@@ -103,7 +103,7 @@
                     </p>
                 </div>
             </div>
-            <div class="pure-u-7-24">
+            <div class="pure-u-10-24 pure-u-md-7-24">
                 <div class="l-box">
                     <p class="subheading">
                         This Year:
@@ -116,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <div class="pure-u-7-24">
+            <div class="pure-u-14-24 pure-u-md-7-24">
                 <div class="l-box">
                     <p class="subheading">
                         This Financial Year:
@@ -130,16 +130,40 @@
                     </div>
                 </div>
             </div>
-            <div class="pure-u-8-24">
+            <div class="pure-u-1 pure-u-md-8-24 desktop">
                 <div class="l-box">
-                    <!--
                     <p class="subheading">
                         Your Activity on CA:
                     </p>
-                    <p class="highlight">
+                    <div id="hc-test" class="pure-u-1" style="height: 100px;">
 
-                    </p>
-                    -->
+                    </div>
+                    <script>
+                        $(function () {
+                            $('#hc-test').highcharts({
+                                title: {
+                                    enabled: false
+                                },
+                                xAxis: {
+                                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                                },
+                                tooltip: {
+                                    valueSuffix: '°C'
+                                },
+                                legend: {
+                                    layout: 'vertical',
+                                    align: 'right',
+                                    verticalAlign: 'middle',
+                                    borderWidth: 0
+                                },
+                                series: [{
+                                    name: 'Tokyo',
+                                    data: [11, 66, 25, 110]
+                                }]
+                            });
+                        });
+                    </script>
                 </div>
             </div>
             <div class="pure-u-1 invoices">

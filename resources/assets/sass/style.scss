@@ -19,6 +19,9 @@ $red-status-colour: #f03d3d;
 $details-colour: #b3b3b3;
 $dark-details-colour: #6B6B6B;
 
+$mobile: "(max-width: 767px)";
+$desktop: "(min-width: 768px)";
+
 body {
     background-color: #f9f9f9;
     font-family: 'SanFranciscoLight';
@@ -72,6 +75,26 @@ select {
    appearance: none;
    padding: 0.2em 0.4em 0.2em 0.4em;
    border-color: $details-colour;
+}
+
+
+
+@media #{$mobile} {
+  .desktop {
+      visibility: hidden;
+      display: none;
+  }
+}
+
+@media #{$desktop} {
+    .mobile {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+.float-right {
+    float: right;
 }
 
 .progress_bar_wrap {

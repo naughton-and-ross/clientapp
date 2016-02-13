@@ -12,7 +12,7 @@
             @include('app.partials.banner')
             <div class="pure-g header">
                 @include('app.partials.header')
-                <div class="pure-u-5-24 user">
+                <div class="pure-u-5-24 user desktop">
                     <div class="l-box">
                         <p>
                             {{Auth::user()->name}}

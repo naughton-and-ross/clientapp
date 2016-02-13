@@ -5,7 +5,7 @@
     var status = {{$client->status}}
 </script>
 <div class="pure-g criticals">
-    <div class="pure-u-8-24 projects">
+    <div class="pure-u-1 pure-u-md-8-24 projects">
         <div class="l-box">
             <p class="subheading">
                 Projects <i class="fa fa-plus-square-o" @click="addProject"></i>
@@ -115,7 +115,7 @@
     </div>
     <div class="pure-u-1-24 spacer">
     </div>
-    <div class="pure-u-14-24 invoices">
+    <div class="pure-u-1 pure-u-md-14-24 invoices">
         <div class="l-box">
             <p class="subheading">
                 Invoices <i class="fa fa-plus-square-o" @click="addInvoice"></i>
@@ -165,7 +165,7 @@
                     <th>Inv. No.</th>
                     <th>Dated</th>
                     <th>Owed</th>
-                    <th>Terms</th>
+                    <th class="desktop">Terms</th>
                     <th>Due</th>
                     <th>Status</th>
                 </tr>
@@ -174,7 +174,7 @@
                     <td>{{$client->client_id}}-{{$ind_invoice->readable_specific_id}}</td>
                     <td>{{date('d.m.Y', strtotime($ind_invoice->issue_date))}}</td>
                     <td>${{number_format($ind_invoice->amount, 2)}}</td>
-                    <td>{{$ind_invoice->terms_diff}} days</td>
+                    <td class="desktop">{{$ind_invoice->terms_diff}} days</td>
                     <td>{{$ind_invoice->HumanDueDate($ind_invoice->due_date)}}</td>
                     @if ($ind_invoice->is_paid == 1)
                     <td>Paid<div class="client_status green"></div></td>
@@ -247,7 +247,7 @@
             </table>
         </div>
         <div class="pure-g">
-            <div class="pure-u-7-24">
+            <div class="pure-u-10-24 pure-u-md-7-24">
                 <div class="l-box">
                     <p class="subheading">
                         Total Paid:
@@ -257,7 +257,7 @@
                     </p>
                 </div>
             </div>
-            <div class="pure-u-8-24">
+            <div class="pure-u-14-24 pure-u-md-8-24">
                 <div class="l-box">
                     <p class="subheading">
                         Total Outstanding:
@@ -267,7 +267,7 @@
                     </p>
                 </div>
             </div>
-            <div class="pure-u-8-24">
+            <div class="pure-u-8-24 desktop">
                 <div class="l-box">
                     <p class="subheading">
                         Client Activity:
