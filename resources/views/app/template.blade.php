@@ -8,26 +8,36 @@
         <META HTTP-EQUIV="Expires" CONTENT="-1">
     </head>
     <body>
-        <div id="app">
-            @include('app.partials.banner')
-            <div class="pure-g header">
-                @include('app.partials.header')
-                <div class="pure-u-5-24 user desktop">
-                    <div class="l-box">
-                        <p>
-                            {{Auth::user()->name}}
-                            <span>
-                                <a href="/auth/logout">
-                                    <i class="fa fa-sign-out"></i>
-                                </a>
-                            </span>
-                        </p>
+        <div class="pure-g" id="app">
+            <div class="pure-u-1">
+                @include('app.partials.banner')
+                <div class="pure-g header">
+                    @include('app.partials.header')
+                    <div class="pure-u-5-24 user desktop">
+                        <div class="l-box">
+                            <p>
+                                {{Auth::user()->name}}
+                                <span>
+                                    <a href="/auth/logout">
+                                        <i class="fa fa-sign-out"></i>
+                                    </a>
+                                </span>
+                            </p>
+                        </div>
                     </div>
                 </div>
+                @yield('content')
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script>
+                <script>
+                jQuery(document).ready(function() {
+                  jQuery(".timeago").timeago();
+                });
+                </script>
             </div>
-            @yield('content')
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script>
+            <div class="pure-u-4-24">
+                
+            </div>
         </div>
     </body>
 </html>
