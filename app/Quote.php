@@ -20,6 +20,12 @@ class Quote extends Model
         return $this->hasOne('App\UserActivity');
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('is_accepted', '0')
+                     ->where('is_rejected', '0');
+    }
+
     public function scopeAccepted($query)
     {
         return $query->where('is_accepted', '1');

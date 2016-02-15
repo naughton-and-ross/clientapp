@@ -44,6 +44,7 @@ class DashboardController extends Controller
         $this_financial_year_total = $this_financial_year_invoices->sum('amount');
         $last_financial_year_total = $last_financial_year_invoices->sum('amount');
 
+        $active_quotes = Quote::active()->get();
         $accepted_quotes = Quote::issuedThisFinancialYear()->accepted()->get();
         $accepted_quotes_total = $accepted_quotes->sum('amount');
 
@@ -84,6 +85,14 @@ class DashboardController extends Controller
             }
         }
 
+        foreach ($active_quotes as $quote) {
+            $quote->client_id = $quote->client_id + 999;
+
+            if ($quote->client_specific_id < 10) {
+                $quote->client_specific_id = sprintf("%02d", $quote->client_specific_id);
+            }
+        }
+
         return view('app.dashboard', [
             'clients'                             => $clients,
             'active_total'                        => $active_total,
@@ -100,6 +109,7 @@ class DashboardController extends Controller
             'projected_fy_earnings'               => $projected_fy_earnings,
             'projected_fy_earnings_percent'       => $projected_fy_earnings_percent,
             'active_invoices'                     => $active_invoices,
+            'active_quotes'                       => $active_quotes,
             'user_resuest_log'                    => $user_resuest_log
         ]);
     }

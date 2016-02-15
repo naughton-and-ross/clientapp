@@ -62,6 +62,11 @@
             @endforeach
             @endif
         </div>
+        <div class="l-box">
+            <p class="subheading">
+                <span>Activity Stream</span>
+            </p>
+        </div>
     </div>
     <div class="pure-u-1 pure-u-md-16-24 data">
         <div class="pure-g">
@@ -201,6 +206,46 @@
                             @endif
                             <td class="actions">
                                 <a href="/invoices/{{$ind_invoice->id}}">
+                                    <i class="fa fa-arrow-circle-o-right"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        @endif
+                    </table>
+                </div>
+            </div>
+            <div class="pure-u-1 invoices">
+                <div class="l-box">
+                    <p class="subheading">
+                        Active Quotes
+                    </p>
+                    @if (count($active_quotes) == 0)
+                        <p class="details">
+                            No active quotes.
+                        </p>
+                    @else
+                    <table id="hor-minimalist-a">
+                        <tr>
+                            <th>Quote No.</th>
+                            <th>Dated</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                        @foreach ($active_quotes as $ind_quote)
+                        <tr>
+                            <td>{{$ind_quote->client_id}}-{{$ind_quote->client_specific_id}}</td>
+                            <td>{{date('d.m.Y', strtotime($ind_quote->issue_date))}}</td>
+                            <td>${{number_format($ind_quote->amount, 2)}}</td>
+                            @if ($ind_quote->is_accepted == 1)
+                            <td>Accepted<div class="client_status green"></div></td>
+                            @elseif ($ind_quote->is_rejected == 1)
+                            <td>Rejected<div class="client_status red"></div></td>
+                            @else
+                            <td>Awaiting Response<div class="client_status yellow"></div></td>
+                            @endif
+                            <td class="actions">
+                                <a href="/quotes/{{$ind_quote->id}}">
                                     <i class="fa fa-arrow-circle-o-right"></i>
                                 </a>
                             </td>
