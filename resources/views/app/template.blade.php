@@ -30,13 +30,13 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script>
                 <script>
-                jQuery(document).ready(function() {
-                  jQuery(".timeago").timeago();
+                $(document).ready(function() {
+                  $(".timeago").timeago();
                 });
                 </script>
             </div>
             <div class="pure-u-4-24">
-                
+
             </div>
         </div>
     </body>
