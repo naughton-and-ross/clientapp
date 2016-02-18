@@ -45,6 +45,6 @@ class UserActivity extends Model
 
     public function scopeLatest($query)
     {
-        return $query->orderBy('id', 'desc')->take(10);
+        return $query->orderBy('id', 'desc')->take(8);
     }
 }
