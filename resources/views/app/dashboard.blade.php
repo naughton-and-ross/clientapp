@@ -75,7 +75,9 @@
                 </div>
                 <div class="pure-u-17-24">
                     <p>
-                        {{$activity->user->name}}
+                        <strong>
+                            {{$activity->user->name}}
+                        </strong>
                         @if ($activity->activity_type == "invoice")
                         issued
                         <strong>
