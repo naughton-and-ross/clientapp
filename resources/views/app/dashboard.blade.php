@@ -100,6 +100,14 @@
                         <strong>
                             ${{number_format($activity->quote->amount)}}
                         </strong>
+                        @elseif ($activity->activity_type == "client")
+                        created
+                        <strong>
+                            a new client record: 
+                        </strong>
+                        <strong>
+                            <a href="/clients/{{$activity->client->id}}">{{$activity->client->name}}</a>
+                        </strong>
                         @elseif ($activity->activity_type == "project")
                         created
                         <strong>
