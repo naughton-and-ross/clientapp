@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Client;
 use App\Invoice;
+use App\UserActivity;
 use App\Quote;
 use Carbon\Carbon;
 
@@ -22,6 +23,7 @@ class DashboardController extends Controller
     {
         $now = Carbon::now()->toDateTimeString();
         $clients = Client::all();
+        $user_activity = UserActivity::latest()->get();
 
         foreach ($clients as $client) {
             $client->client_id = $client->id + 999;
@@ -110,7 +112,8 @@ class DashboardController extends Controller
             'projected_fy_earnings_percent'       => $projected_fy_earnings_percent,
             'active_invoices'                     => $active_invoices,
             'active_quotes'                       => $active_quotes,
-            'user_resuest_log'                    => $user_resuest_log
+            'user_resuest_log'                    => $user_resuest_log,
+            'user_activity'                       => $user_activity
         ]);
     }
 }

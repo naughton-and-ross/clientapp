@@ -28,6 +28,11 @@ class UserActivity extends Model
         return $this->belongsTo('App\Quote');
     }
 
+    public function project()
+    {
+        return $this->belongsTo('App\Project');
+    }
+
     public function project_update()
     {
         return $this->belongsTo('App\ProjectUpdate');

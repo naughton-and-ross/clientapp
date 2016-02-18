@@ -66,6 +66,73 @@
             <p class="subheading">
                 <span>Activity Stream</span>
             </p>
+            <div class="pure-g">
+                @foreach ($user_activity as $activity)
+                <div class="pure-u-3-24">
+                    <p>
+                        <strong class="timeago" title="{{$activity->created_at}}"></strong><strong> &#8212; </strong>
+                    </p>
+                </div>
+                <div class="pure-u-17-24">
+                    <p>
+                        {{$activity->user->name}}
+                        @if ($activity->activity_type == "invoice")
+                        issued
+                        <strong>
+                            <a href="/invoices/{{$activity->invoice->id}}">an invoice</a>
+                        </strong> to
+                        <strong>
+                            <a href="/clients/{{$activity->invoice->client->id}}">{{$activity->invoice->client->name}}</a>
+                        </strong> for
+                        <strong>
+                            ${{number_format($activity->invoice->amount)}}
+                        </strong>
+                        @elseif ($activity->activity_type == "quote")
+                        issued
+                        <strong>
+                            <a href="/quotes/{{$activity->quote->id}}">a quote</a>
+                        </strong> to
+                        <strong>
+                            <a href="/clients/{{$activity->quote->id}}">{{$activity->quote->client->name}}</a>
+                        </strong> for
+                        <strong>
+                            ${{number_format($activity->quote->amount)}}
+                        </strong>
+                        @elseif ($activity->activity_type == "project")
+                        created
+                        <strong>
+                            a project
+                        </strong> for
+                        <strong>
+                            <a href="/clients/{{$activity->project->client->id}}">{{$activity->project->client->name}}</a>
+                        </strong> called
+                        <strong>
+                            <a href="/projects/{{$activity->project->id}}">{{$activity->project->name}}</a>
+                        </strong>
+                        @elseif ($activity->activity_type == "project_update")
+                        posted
+                        <strong>
+                            a project update
+                        </strong> on
+                        <strong>
+                            <a href="/projects/{{$activity->project_update->project->id}}">{{$activity->project_update->project->name}}</a>
+                        </strong>
+                        @elseif ($activity->activity_type == "project_activity")
+                        updated the
+                        <strong>
+                            project activity stream
+                        </strong> on
+                        <strong>
+                            <a href="/projects/{{$activity->project_activity->project->id}}">{{$activity->project_activity->project->name}}</a>
+                        </strong>
+                        @endif
+                    </p>
+                </div>
+                <div class="pure-u-4-24 spacer">
+
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <div class="pure-u-1 pure-u-md-16-24 data">
