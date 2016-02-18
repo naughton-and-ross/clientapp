@@ -37,4 +37,9 @@ class UserActivity extends Model
     {
         return $this->hasOne('App\ProjectActivity');
     }
+
+    public function scopeLatest($query)
+    {
+        return $query->orderBy('id', 'desc')->take(10);
+    }
 }
