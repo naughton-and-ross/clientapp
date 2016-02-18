@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\User;
+use Auth;
+use Mail;
+
 class Client extends Model
 {
     protected $guarded = ['id', 'public_id'];
@@ -38,6 +42,24 @@ class Client extends Model
                  'activity_type' => 'client'
              ]);
         });
+
+        // static::created(function($client) {
+        //     $users = User::all()->except(Auth::user()->id);
+        //
+        //     foreach ($users as $user) {
+        //         $data = [
+        //             'name' => $user->name,
+        //             'title' => 'New Client Record',
+        //             'description' => 'There\'s a new client on ClientApp',
+        //             'client' => $client
+        //         ];
+        //
+        //         Mail::queue('emails.new-client', $data, function ($message) use ($user) {
+        //             $message->to($user->email, $user->name);
+        //             $message->subject('New Client Record');
+        //         });
+        //     }
+        // });
 
         static::deleting(function($client) {
              $client->user_activity()->delete();
