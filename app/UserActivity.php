@@ -15,27 +15,27 @@ class UserActivity extends Model
 
     public function client()
     {
-        return $this->hasOne('App\Client');
+        return $this->belongsTo('App\Client');
     }
 
     public function invoice()
     {
-        return $this->hasOne('App\Invoice');
+        return $this->belongsTo('App\Invoice');
     }
 
     public function quote()
     {
-        return $this->hasOne('App\Quote');
+        return $this->belongsTo('App\Quote');
     }
 
     public function project_update()
     {
-        return $this->hasOne('App\ProjectUpdate');
+        return $this->belongsTo('App\ProjectUpdate');
     }
 
     public function project_activity()
     {
-        return $this->hasOne('App\ProjectActivity');
+        return $this->belongsTo('App\ProjectActivity');
     }
 
     public function scopeLatest($query)
