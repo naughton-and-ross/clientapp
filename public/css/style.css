@@ -27,7 +27,7 @@ a:link, a:visited {
   color: inherit;
   transition: 0.3s; }
   a:link:hover, a:visited:hover {
-    color: black; }
+    color: #5f9adf; }
 
 i {
   cursor: pointer; }
