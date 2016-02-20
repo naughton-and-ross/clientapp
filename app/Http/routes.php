@@ -57,3 +57,11 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function() {
     Route::post('return', 'APIController@returnReuqest');
     Route::get('test-email', 'APIController@testMailQueue');
 });
+
+Route::post('oauth/access_token', function() {
+    return Response::json(Authorizer::issueAccessToken());
+});
+
+Route::get('protected-resource', ['middleware' => 'oauth', function() {
+    return "ya in";
+}]);
