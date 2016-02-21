@@ -103,7 +103,7 @@
                         @elseif ($activity->activity_type == "client")
                         created
                         <strong>
-                            a new client record: 
+                            a new client record:
                         </strong>
                         <strong>
                             <a href="/clients/{{$activity->client->id}}">{{$activity->client->name}}</a>
@@ -214,6 +214,7 @@
             </div>
             <div class="pure-u-1 pure-u-md-8-24 desktop">
                 <div class="l-box">
+                    <!--
                     <p class="subheading">
                         Your Activity on CA:
                     </p>
@@ -246,6 +247,7 @@
                             });
                         });
                     </script>
+                -->
                 </div>
             </div>
             <div class="pure-u-1 invoices">
