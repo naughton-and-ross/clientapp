@@ -27,6 +27,11 @@ class Project extends Model
         return $this->hasMany('App\ProjectActivity');
     }
 
+    public function project_hours()
+    {
+        return $this->hasMany('App\ProjectHour');
+    }
+
     public function user_activity()
     {
         return $this->hasOne('App\UserActivity');
