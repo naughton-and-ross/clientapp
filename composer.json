@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "aws/aws-sdk-php": "~3.0",
         "lucadegasperi/oauth2-server-laravel": "5.0.*",
-        "naughton-and-ross/telstrasms": "^1.1"
+        "naughton-and-ross/telstrasms": "1.2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

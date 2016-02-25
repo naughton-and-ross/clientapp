@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52634867b84fc4c609d59ac4b36973dd",
-    "content-hash": "7b3c8e168315565ddb3a6d78cc657968",
+    "hash": "8ab285a9d0858da6c89f640556f79ab3",
+    "content-hash": "dae40d52d88d71d409571cc8027f6a76",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.15.3",
+            "version": "3.15.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "db18f6c4653add0cc40d708f0916192f9ec67ac3"
+                "reference": "b1e854697f57b8376cf27a150fb452c45d495411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/db18f6c4653add0cc40d708f0916192f9ec67ac3",
-                "reference": "db18f6c4653add0cc40d708f0916192f9ec67ac3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b1e854697f57b8376cf27a150fb452c45d495411",
+                "reference": "b1e854697f57b8376cf27a150fb452c45d495411",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-02-18 23:32:29"
+            "time": "2016-02-23 21:45:03"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -615,16 +615,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.30",
+            "version": "v5.1.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a"
+                "reference": "d899fbda59bf3ffcde11a9b443c01043b76f40b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a",
-                "reference": "f00b80d4d33cf67815d1b4aaae8d4b47af2f2a2a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d899fbda59bf3ffcde11a9b443c01043b76f40b3",
+                "reference": "d899fbda59bf3ffcde11a9b443c01043b76f40b3",
                 "shasum": ""
             },
             "require": {
@@ -640,7 +640,7 @@
                 "nesbot/carbon": "~1.19",
                 "paragonie/random_compat": "~1.1",
                 "php": ">=5.5.9",
-                "psy/psysh": "0.6.*",
+                "psy/psysh": "0.7.*",
                 "swiftmailer/swiftmailer": "~5.1",
                 "symfony/console": "2.7.*",
                 "symfony/css-selector": "2.7.*",
@@ -739,7 +739,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-02-17 18:00:25"
+            "time": "2016-02-24 15:13:21"
         },
         {
             "name": "league/event",
@@ -793,16 +793,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.16",
+            "version": "1.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "183e1a610664baf6dcd6fceda415baf43cbdc031"
+                "reference": "02f5b6c9a8b9278c8381e3361e7bd9d641c740ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/183e1a610664baf6dcd6fceda415baf43cbdc031",
-                "reference": "183e1a610664baf6dcd6fceda415baf43cbdc031",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/02f5b6c9a8b9278c8381e3361e7bd9d641c740ca",
+                "reference": "02f5b6c9a8b9278c8381e3361e7bd9d641c740ca",
                 "shasum": ""
             },
             "require": {
@@ -815,8 +815,7 @@
                 "ext-fileinfo": "*",
                 "mockery/mockery": "~0.9",
                 "phpspec/phpspec": "^2.2",
-                "phpspec/prophecy-phpunit": "~1.0",
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "~4.8 || ~5.0"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -873,7 +872,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-12-19 20:16:43"
+            "time": "2016-02-19 15:35:38"
         },
         {
             "name": "league/oauth2-server",
@@ -1184,16 +1183,16 @@
         },
         {
             "name": "naughton-and-ross/telstrasms",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/naughton-and-ross/telstraSMS.git",
-                "reference": "0d38adcd483dcd230b97fbff93f33c9ef15d5d85"
+                "reference": "8047c56de0f8e46faaa4593e0f58a5e165a678d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/naughton-and-ross/telstraSMS/zipball/0d38adcd483dcd230b97fbff93f33c9ef15d5d85",
-                "reference": "0d38adcd483dcd230b97fbff93f33c9ef15d5d85",
+                "url": "https://api.github.com/repos/naughton-and-ross/telstraSMS/zipball/8047c56de0f8e46faaa4593e0f58a5e165a678d9",
+                "reference": "8047c56de0f8e46faaa4593e0f58a5e165a678d9",
                 "shasum": ""
             },
             "type": "library",
@@ -1213,7 +1212,7 @@
                 }
             ],
             "description": "telstraSMS is a PHP Implementation of the Telstra SMS API",
-            "time": "2016-02-25 01:09:37"
+            "time": "2016-02-25 07:52:42"
         },
         {
             "name": "nesbot/carbon",
@@ -1450,16 +1449,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.6.1",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "0f04df0b23663799a8941fae13cd8e6299bde3ed"
+                "reference": "1573b36948a32bdaf43db525edf5e95d5a08ed06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0f04df0b23663799a8941fae13cd8e6299bde3ed",
-                "reference": "0f04df0b23663799a8941fae13cd8e6299bde3ed",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1573b36948a32bdaf43db525edf5e95d5a08ed06",
+                "reference": "1573b36948a32bdaf43db525edf5e95d5a08ed06",
                 "shasum": ""
             },
             "require": {
@@ -1518,7 +1517,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2015-11-12 16:18:56"
+            "time": "2016-02-20 16:27:05"
         },
         {
             "name": "swiftmailer/swiftmailer",
