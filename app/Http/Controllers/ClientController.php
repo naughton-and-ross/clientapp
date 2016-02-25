@@ -11,7 +11,11 @@ use Auth;
 use Carbon\Carbon;
 use App\Client;
 use App\Invoice;
+use App\User;
 use Input;
+use SMS;
+
+use App\Jobs\SendNewClientNotification;
 
 class ClientController extends Controller
 {
@@ -55,6 +59,12 @@ class ClientController extends Controller
         $client->user_id = Auth::user()->id;
         $client->status = "active";
         $client->save();
+
+        $to_notify = User::all()->except($client->user->id);
+
+        foreach ($to_notify as $user) {
+            SMS::send($user->phone_number, 'ClientApp: A new client record ('.$client->name.') has been added.');
+        }
 
         return redirect('clients/'.$client->id);
     }
