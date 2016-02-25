@@ -10,7 +10,9 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Client;
 use App\Quote;
+use App\User;
 use Input;
+use SMS;
 
 class QuoteController extends Controller
 {
@@ -104,6 +106,12 @@ class QuoteController extends Controller
     {
         $quote = Quote::find($id);
         $quote->update($request->input('form_data'));
+        if ($request->input('form_data')['is_accepted'] == true) {
+            $to_notify = User::all()->except($quote->user->id);
+            foreach ($to_notify as $user) {
+                SMS::send($user->phone_number, 'ClientApp: '.$quote->client->name.'\'s quote for $'.number_format($quote->amount).' has been accepted.');
+            }
+        }
         $quote->save();
 
         return $quote;
