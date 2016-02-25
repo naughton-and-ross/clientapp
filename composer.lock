@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "85d21d1e7b84151e7ddd0970d4fcd3df",
-    "content-hash": "8217a0ee7c794d020d8dfe4a8ccbed10",
+    "hash": "52634867b84fc4c609d59ac4b36973dd",
+    "content-hash": "7b3c8e168315565ddb3a6d78cc657968",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1181,6 +1181,39 @@
                 "jsonpath"
             ],
             "time": "2016-01-05 18:25:05"
+        },
+        {
+            "name": "naughton-and-ross/telstrasms",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/naughton-and-ross/telstraSMS.git",
+                "reference": "0d38adcd483dcd230b97fbff93f33c9ef15d5d85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/naughton-and-ross/telstraSMS/zipball/0d38adcd483dcd230b97fbff93f33c9ef15d5d85",
+                "reference": "0d38adcd483dcd230b97fbff93f33c9ef15d5d85",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "kubacode\\telstraSMS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Piers-Blundell",
+                    "email": "kubalicious@gmail.com"
+                }
+            ],
+            "description": "telstraSMS is a PHP Implementation of the Telstra SMS API",
+            "time": "2016-02-25 01:09:37"
         },
         {
             "name": "nesbot/carbon",

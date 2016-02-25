@@ -65,3 +65,7 @@ Route::post('oauth/access_token', function() {
 Route::get('protected-resource', ['middleware' => 'oauth', function() {
     return "ya in";
 }]);
+
+Route::get('sms-test', function() {
+    $message = SMS::send('0430113345', 'Test SMS');
+});

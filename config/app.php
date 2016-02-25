@@ -141,6 +141,7 @@ return [
 
         LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
+        kubacode\telstraSMS\SMSServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -199,6 +200,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
+        'SMS' => kubacode\telstraSMS\SMSFacade::class,
 
     ],
 
