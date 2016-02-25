@@ -10,8 +10,10 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Client;
 use App\Invoice;
+use App\User;
 use Carbon\Carbon;
 use Input;
+use SMS;
 
 class InvoiceController extends Controller
 {
@@ -110,6 +112,10 @@ class InvoiceController extends Controller
             $invoice->update($request->input('form_data'));
             if ($request->input('form_data')['is_paid'] == true) {
                 $invoice->paid_at = Carbon::now();
+                $to_notify = User::all()->except($invoice->user->id);
+                foreach ($to_notify as $user) {
+                    SMS::send($user->phone_number, 'ClientApp: '.$invoice->client->name.'\'s invoie for $'.number_format($invoice->amount).' has been paid.');
+                }
             }
             $invoice->save();
         } else {
