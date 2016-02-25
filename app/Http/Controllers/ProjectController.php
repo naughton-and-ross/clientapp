@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use Auth;
 use App\Project;
+use Input;
 
 class ProjectController extends Controller
 {
@@ -46,6 +47,9 @@ class ProjectController extends Controller
         $project->user_id = Auth::user()->id;
         $project->name = $request->name;
         $project->desc = $request->desc;
+        if (isset($request->is_time_based)) {
+            $project->is_time_based = 1;
+        }
 
         $project->save();
 

@@ -200,8 +200,12 @@ select {
   border-radius: 2px; }
   .criticals .project_box.new_project_box input {
     outline: none;
-    border: none;
-    width: 100%; }
+    border: none; }
+    .criticals .project_box.new_project_box input[type="text"] {
+      width: 100%; }
+  .criticals .project_box.new_project_box label {
+    margin-left: 0.3em;
+    color: #A9A9A9; }
   .criticals .project_box .latest_activity {
     border-top: 1px solid #E6E6E6; }
 

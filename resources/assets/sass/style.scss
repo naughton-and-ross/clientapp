@@ -302,7 +302,15 @@ select {
             input {
                 outline: none;
                 border: none;
-                width: 100%;
+
+                &[type="text"] {
+                    width: 100%;
+                }
+            }
+
+            label {
+                margin-left: 0.3em;
+                color: #A9A9A9;
             }
         }
 

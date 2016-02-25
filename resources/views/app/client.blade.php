@@ -20,6 +20,10 @@
                             <input type="text" class="details" placeholder="Project Description" v-model="project_desc" name="desc">
                         </p>
                         <p class="details">
+                            <input type="checkbox" name="is_time_based" id="time_based_check">
+                            <label for="time_based_check">is time-based</label>
+                        </p>
+                        <p class="details">
                             <button class="pure-button pure-button-primary">Create</button>
                             <a class="pure-button" @click="cancelNewProject">Cancel</a>
                         </p>
