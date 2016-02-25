@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
+use SMS;
 
 class Quote extends Model
 {
@@ -13,6 +14,11 @@ class Quote extends Model
     public function client()
     {
         return $this->belongsTo('App\Client');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 
     public function user_activity()
@@ -46,6 +52,15 @@ class Quote extends Model
                  'user_id' => $quote->user_id,
                  'activity_type' => 'quote'
              ]);
+        });
+
+        static::created(function($quote) {
+            $quote_amount = '$'.number_format($quote->amount);
+            $to_notify = User::all()->except($quote->user->id);
+
+            foreach ($to_notify as $user) {
+                SMS::send($user->phone_number, 'ClientApp: A new quote for '.$quote_amount.' has been issued to '.$quote->client->name.'.');
+            }
         });
 
         static::deleting(function($quote) {

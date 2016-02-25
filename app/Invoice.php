@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Auth;
 use Carbon\Carbon;
+use SMS;
 
 class Invoice extends Model
 {
@@ -113,6 +114,15 @@ class Invoice extends Model
                 'user_id' => $invoice->user_id,
                 'activity_type' => 'invoice'
              ]);
+        });
+
+        static::created(function($invoice) {
+            $invoice_amount = '$'.number_format($invoice->amount);
+            $to_notify = User::all()->except($invoice->user->id);
+
+            foreach ($to_notify as $user) {
+                SMS::send($user->phone_number, 'ClientApp: A new invoice for '.$invoice_amount.' has been issued to '.$invoice->client->name.'.');
+            }
         });
 
         static::deleting(function($invoice) {

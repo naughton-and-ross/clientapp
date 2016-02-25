@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 use Auth;
 use Mail;
+use SMS;
 
 class Client extends Model
 {
@@ -41,6 +42,14 @@ class Client extends Model
                  'user_id' => $client->user_id,
                  'activity_type' => 'client'
              ]);
+        });
+
+        static::created(function($client) {
+            $to_notify = User::all()->except($client->user->id);
+
+            foreach ($to_notify as $user) {
+                SMS::send($user->phone_number, 'ClientApp: A new client record ('.$client->name.') has been added.');
+            }
         });
 
         // static::created(function($client) {

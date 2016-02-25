@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use SMS;
+
 class Project extends Model
 {
 
@@ -45,6 +47,14 @@ class Project extends Model
                  'user_id' => $project->user_id,
                  'activity_type' => 'project'
              ]);
+        });
+
+        static::created(function($project) {
+            $to_notify = User::all()->except($project->user->id);
+
+            foreach ($to_notify as $user) {
+                SMS::send($user->phone_number, 'ClientApp: A new project ('.$project->name.') has been added for '.$project->client->name.'.');
+            }
         });
 
         static::deleting(function($project) {
