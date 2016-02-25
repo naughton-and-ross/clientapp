@@ -147,6 +147,8 @@ select {
     background-color: #f03d3d; }
   .client_status.grey {
     background-color: #b3b3b3; }
+  .client_status.blue {
+    background-color: #5f9adf; }
 
 .hint--rounded {
   cursor: pointer; }

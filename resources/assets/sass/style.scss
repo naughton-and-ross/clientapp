@@ -16,6 +16,7 @@ $app-width: 1200px;
 $green-status-colour: #3fc649;
 $yellow-status-colour: #f1c40f;
 $red-status-colour: #f03d3d;
+$blue-status-colour: #5f9adf;
 $details-colour: #b3b3b3;
 $dark-details-colour: #6B6B6B;
 
@@ -47,7 +48,7 @@ a {
         color: inherit;
         transition: 0.3s;
         &:hover {
-            color: #5f9adf;
+            color: $blue-status-colour;
         }
     }
 }
@@ -210,6 +211,9 @@ select {
     }
     &.grey {
         background-color: $details-colour;
+    }
+    &.blue {
+        background-color: $blue-status-colour;
     }
 }
 

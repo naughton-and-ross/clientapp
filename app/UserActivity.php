@@ -53,19 +53,7 @@ class UserActivity extends Model
     public function read_status()
     {
         $read_status = DB::table('user_activities_read_status')->where('activity_id', $this->id)->pluck('is_read');
-        
+
         return $read_status;
-    }
-
-    protected static function boot() {
-        parent::boot();
-
-        static::created(function($activity) {
-             DB::table('user_activities_read_status')->insert([
-                 'user_id'     => $activity->user->id,
-                 'activity_id' => $activity->id,
-                 'is_read' => 0
-             ]);
-        });
     }
 }

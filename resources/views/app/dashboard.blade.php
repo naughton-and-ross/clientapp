@@ -73,7 +73,7 @@
                         <strong class="timeago" title="{{$activity->created_at}}"></strong><strong> &#8212; </strong>
                     </p>
                 </div>
-                <div class="pure-u-17-24">
+                <div class="pure-u-16-24">
                     <p>
                         <strong>
                             {{$activity->user->name}}
@@ -138,7 +138,14 @@
                         @endif
                     </p>
                 </div>
-                <div class="pure-u-4-24 spacer">
+                <div class="pure-u-1-24">
+                    <div class="l-box">
+                        @if ($activity->read_status !== 1)
+                        <div class="client_status blue"></div>
+                        @endif
+                    </div>
+                </div>
+                <div class="pure-u-3-24 spacer">
 
                 </div>
                 @endforeach

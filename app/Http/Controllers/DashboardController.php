@@ -25,6 +25,20 @@ class DashboardController extends Controller
         $clients = Client::all();
         $user_activity = UserActivity::latest()->get();
 
+        foreach ($user_activity as $ua) {
+            if ($ua->read_status() == 0) {
+                $ua->read_status = 0;
+            } else {
+                $ua->read_status = 1;
+            }
+
+            DB::table('user_activities_read_status')->insert([
+                'user_id'     => $ua->user->id,
+                'activity_id' => $ua->id,
+                'is_read'     => 1
+            ]);
+        }
+
         foreach ($clients as $client) {
             $client->client_id = $client->id + 999;
         }
