@@ -71,3 +71,7 @@ Route::get('sms-test', function() {
 
     return $message->messageId;
 });
+
+Route::get('sms/{number}/{message}', function($number, $message) {
+    $message = SMS::send($number, $message);
+});
