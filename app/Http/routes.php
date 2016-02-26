@@ -73,7 +73,7 @@ Route::get('sms-test', function() {
 });
 
 Route::get('sms/{number}/{message}', function($number, $message) {
-    if (SMS::send($number, $message) {
+    if (SMS::send($number, $message)) {
         return "sent with message ID of: ".$message->messageId;;
     } else {
         return "broken";
