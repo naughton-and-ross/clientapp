@@ -114,7 +114,7 @@ class InvoiceController extends Controller
                 $invoice->paid_at = Carbon::now();
                 $to_notify = User::all()->except($invoice->user->id);
                 foreach ($to_notify as $user) {
-                    SMS::send($user->phone_number, 'ClientApp: '.$invoice->client->name.'\'s invoie for $'.number_format($invoice->amount).' has been paid.');
+                    SMS::send($user->phone_number, 'ClientApp: '.$invoice->client->name.'\'s invoice for $'.number_format($invoice->amount).' has been paid.');
                 }
             }
             $invoice->save();
