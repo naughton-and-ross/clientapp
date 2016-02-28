@@ -26,6 +26,7 @@
                         </div>
                     </div>
                 </div>
+                @include('flash::message')
                 @yield('content')
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script>

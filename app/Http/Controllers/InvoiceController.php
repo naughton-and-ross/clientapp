@@ -12,6 +12,7 @@ use App\Client;
 use App\Invoice;
 use App\User;
 use Carbon\Carbon;
+use Flash;
 use Input;
 use SMS;
 

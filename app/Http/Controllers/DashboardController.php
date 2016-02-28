@@ -15,6 +15,7 @@ use Carbon\Carbon;
 
 use Auth;
 use DB;
+use Flash;
 use Mail;
 
 class DashboardController extends Controller

@@ -4,7 +4,7 @@ return [
 
     'version' => '1.0.2',
 
-    'sms_notifications' => env('SMS_NOTIFICATIONS', true);
+    'sms_notifications' => env('SMS_NOTIFICATIONS', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -144,6 +144,7 @@ return [
         LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
         kubacode\telstraSMS\SMSServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -202,7 +203,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
-        'SMS' => kubacode\telstraSMS\SMSFacade::class,
+        'Flash'      => Laracasts\Flash\Flash::class,
+        'SMS'        => kubacode\telstraSMS\SMSFacade::class,
 
     ],
 
