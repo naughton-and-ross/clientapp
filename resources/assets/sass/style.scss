@@ -284,6 +284,13 @@ select {
                 font-size: 80%;
                 margin-left: 0.4em;
             }
+
+            span {
+                &.grey {
+                    font-weight: 100;
+                    color: $details-colour;
+                }
+            }
         }
 
         &.details {

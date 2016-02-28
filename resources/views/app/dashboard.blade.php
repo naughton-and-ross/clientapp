@@ -140,7 +140,7 @@
                 </div>
                 <div class="pure-u-1-24">
                     <div class="l-box">
-                        @if ($activity->read_status !== 1)
+                        @if ($activity->read_status() !== 1)
                         <div class="client_status blue"></div>
                         @endif
                     </div>
@@ -150,6 +150,11 @@
                 </div>
                 @endforeach
             </div>
+            <p>
+                <a href="/stream">
+                    See more &#8594;
+                </a>
+            </p>
         </div>
     </div>
     <div class="pure-u-1 pure-u-md-16-24 data">
@@ -246,9 +251,7 @@
                                 series: [{
                                     name: 'Requests',
                                     data: [
-                                        @foreach ($user_resuest_log as $day_log)
-                                        {{$day_log->request_count}},
-                                        @endforeach
+
                                     ]
                                 }]
                             });

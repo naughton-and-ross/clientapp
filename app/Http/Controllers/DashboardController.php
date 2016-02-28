@@ -26,12 +26,6 @@ class DashboardController extends Controller
         $user_activity = UserActivity::latest()->get();
 
         foreach ($user_activity as $ua) {
-            if ($ua->read_status() == 0) {
-                $ua->read_status = 0;
-            } else {
-                $ua->read_status = 1;
-            }
-
             DB::table('user_activities_read_status')->insert([
                 'user_id'     => $ua->user->id,
                 'activity_id' => $ua->id,
@@ -63,8 +57,6 @@ class DashboardController extends Controller
         $active_quotes = Quote::active()->get();
         $accepted_quotes = Quote::issuedThisFinancialYear()->accepted()->get();
         $accepted_quotes_total = $accepted_quotes->sum('amount');
-
-        $user_resuest_log = DB::table('request_log')->where('user_id', Auth::user()->id)->get();
 
         $position_difference = $thirty_day_total - $previous_thirty_day_total;
 
@@ -126,8 +118,24 @@ class DashboardController extends Controller
             'projected_fy_earnings_percent'       => $projected_fy_earnings_percent,
             'active_invoices'                     => $active_invoices,
             'active_quotes'                       => $active_quotes,
-            'user_resuest_log'                    => $user_resuest_log,
             'user_activity'                       => $user_activity
+        ]);
+    }
+
+    public function renderStream()
+    {
+        $user_activity = UserActivity::orderBy('id', 'desc')->get();
+
+        foreach ($user_activity as $ua) {
+            DB::table('user_activities_read_status')->insert([
+                'user_id'     => $ua->user->id,
+                'activity_id' => $ua->id,
+                'is_read'     => 1
+            ]);
+        }
+
+        return view('app.stream', [
+            'user_activity' => $user_activity
         ]);
     }
 }
