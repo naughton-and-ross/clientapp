@@ -113,7 +113,7 @@ class InvoiceController extends Controller
             $invoice->update($request->input('form_data'));
             if ($request->input('form_data')['is_paid'] == true) {
                 $invoice->paid_at = Carbon::now();
-                $to_notify = User::all()->except($invoice->user->id);
+                $to_notify = User::all()->except($request->user()->id);
                 foreach ($to_notify as $user) {
                     SMS::send($user->phone_number, 'ClientApp: '.$invoice->client->name.'\'s invoice for $'.number_format($invoice->amount).' has been paid.');
                 }
