@@ -67,12 +67,6 @@ Route::get('protected-resource', ['middleware' => 'oauth', function() {
     return "ya in";
 }]);
 
-Route::get('sms-test', function() {
-    $message = SMS::send('0430113345', 'Test SMS');
-
-    return $message->messageId;
-});
-
 Route::get('sms/{number}/{message}', function($number, $message) {
     $message = SMS::send($number, $message);
 
