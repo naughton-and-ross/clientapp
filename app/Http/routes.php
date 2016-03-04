@@ -82,3 +82,13 @@ Route::get('sms/{number}/{message}', function($number, $message) {
         return "broken";
     }
 });
+
+Route::get('sms/{messageId}', function($messageId) {
+    $message = SMS::getResponse($messageId);
+
+    if ($message) {
+        return $message;
+    } else {
+        return "broken";
+    }
+});
