@@ -273,7 +273,7 @@
                     <table id="hor-minimalist-a">
                         <tr>
                             <th>Inv. No.</th>
-                            <th>Dated</th>
+                            <th class="desktop">Dated</th>
                             <th>Owed</th>
                             <th>Terms</th>
                             <th>Due</th>
@@ -282,7 +282,7 @@
                         @foreach ($active_invoices as $ind_invoice)
                         <tr>
                             <td>{{$ind_invoice->client_id}}-{{$ind_invoice->client_specific_id}}</td>
-                            <td>{{date('d.m.Y', strtotime($ind_invoice->issue_date))}}</td>
+                            <td class="desktop">{{date('d.m.Y', strtotime($ind_invoice->issue_date))}}</td>
                             <td>${{number_format($ind_invoice->amount, 2)}}</td>
                             <td>{{$ind_invoice->terms_diff}} days</td>
                             <td>{{$ind_invoice->HumanDueDate($ind_invoice->due_date)}}</td>
