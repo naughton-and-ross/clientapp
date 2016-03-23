@@ -66,6 +66,6 @@ class APIController extends Controller
     {
         DB::table('pushes')->insert([
             'payload' => $request
-        ])
+        ]);
     }
 }
