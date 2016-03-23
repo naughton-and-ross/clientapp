@@ -36,9 +36,12 @@
                 });
                 </script>
             </div>
-            <div class="pure-u-4-24">
 
+            <div class="pure-u-4-24">
             </div>
+        </div>
+        <div id="commit_info">
+            {{$latest_commit['head_commit']['id']}} &#8212; {{$latest_commit['head_commit']['message']}}
         </div>
     </body>
 </html>

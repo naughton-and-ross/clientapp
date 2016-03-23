@@ -38,6 +38,15 @@ body {
     transition: all .3s ease;
 }
 
+#commit_info {
+    width: 100%;
+    max-width: $app-width;
+    margin: 0 auto;
+    padding-bottom: 4em;
+    transition: all .3s ease;
+    font-family: 'Consolas', monospace;
+}
+
 .l-box {
     padding: 1em;
 }
