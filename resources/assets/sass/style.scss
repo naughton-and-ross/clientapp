@@ -34,7 +34,6 @@ body {
     margin: 0 auto;
     background-color: white;
     padding-bottom: 4em;
-    margin-bottom: 10em;
     transition: all .3s ease;
 }
 
@@ -42,9 +41,20 @@ body {
     width: 100%;
     max-width: $app-width;
     margin: 0 auto;
-    padding-bottom: 4em;
+    margin-bottom: 10em;
+    background-color: #f5f4f4;
+    color: #f5f4f4;
     transition: all .3s ease;
-    font-family: 'Consolas', monospace;
+    font-family: 'Menlo', monospace;
+    font-size: 80%;
+
+    &:hover {
+        color: $dark-details-colour;
+    }
+
+    span {
+        margin-right: 2em;
+    }
 }
 
 .l-box {

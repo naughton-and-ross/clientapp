@@ -41,7 +41,11 @@
             </div>
         </div>
         <div id="commit_info">
-            {{$latest_commit['head_commit']['id']}} &#8212; {{$latest_commit['head_commit']['message']}}
+            <div class="l-box">
+                <span>ClientApp {{config('app.version')}}</span>
+                <span>{{ str_limit($latest_commit['head_commit']['id'], 7) }} {{$latest_commit['head_commit']['message']}}</span>
+                <span>Deployed code is 4 commits behind GitHub</span>
+            </div>
         </div>
     </body>
 </html>

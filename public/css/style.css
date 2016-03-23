@@ -16,16 +16,22 @@ body {
   margin: 0 auto;
   background-color: white;
   padding-bottom: 4em;
-  margin-bottom: 10em;
   transition: all .3s ease; }
 
 #commit_info {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 4em;
+  margin-bottom: 10em;
+  background-color: #f5f4f4;
+  color: #f5f4f4;
   transition: all .3s ease;
-  font-family: 'Consolas', monospace; }
+  font-family: 'Menlo', monospace;
+  font-size: 80%; }
+  #commit_info:hover {
+    color: #6B6B6B; }
+  #commit_info span {
+    margin-right: 2em; }
 
 .l-box {
   padding: 1em; }
