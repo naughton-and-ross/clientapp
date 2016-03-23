@@ -6,6 +6,11 @@
         <meta http-equiv="Cache-control" content="no-cache">
         <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
         <META HTTP-EQUIV="Expires" CONTENT="-1">
+            <style>
+                input.remember {
+                    margin-left: 1em;
+                }
+            </style>
     </head>
     <body>
         <div id="app">
@@ -42,6 +47,7 @@
                         <input type="text" name="name" placeholder="Your Name" class="pure-u-1 pure-u-md-6-24" autocomplete="off" />
                         <input type="password" name="password" class="pure-u-1 pure-u-md-6-24" placeholder="Your Password"/>
                         <button type="submit" class="pure-button pure-button-primary">Login</button>
+                        <input class="remember" type="checkbox" name="remember"> Remember Me
                     </form>
                 </div>
             </div>
