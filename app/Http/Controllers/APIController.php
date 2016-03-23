@@ -65,7 +65,7 @@ class APIController extends Controller
     public function receive_push(Request $request)
     {
         DB::table('pushes')->insert([
-            'payload' => $request
+            'payload' => $request->payload
         ]);
     }
 }
