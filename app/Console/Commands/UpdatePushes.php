@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 
 use App\User;
+use Carbon\Carbon;
 use DB;
 
 class UpdatePushes extends Command
@@ -40,6 +41,6 @@ class UpdatePushes extends Command
      */
     public function handle()
     {
-        DB::table('pushes')->where('is_deployed', 0)->update(['is_deployed' => 1]);
+        DB::table('pushes')->where('is_deployed', 0)->update(['is_deployed' => 1, 'updated_at' => Carbon::now()]);
     }
 }
