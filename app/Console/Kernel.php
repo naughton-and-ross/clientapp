@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\Inspire::class,
         Commands\SendNewCodeSMS::class,
+        Commands\UpdatePushes::class,
     ];
 
     /**
