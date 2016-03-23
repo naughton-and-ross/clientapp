@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Client;
 use App\Project;
+use DB;
 use Input;
 use Mail;
 
@@ -59,5 +60,12 @@ class APIController extends Controller
         });
 
         return "queued";
+    }
+
+    public function receive_push(Request $request)
+    {
+        DB::table('pushes')->insert([
+            'payload' => $request
+        ])
     }
 }

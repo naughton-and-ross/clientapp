@@ -86,3 +86,5 @@ Route::get('sms/{messageId}', function($messageId) {
         return "broken";
     }
 });
+
+Route::post('receive-github', 'APIController@receive_push');
