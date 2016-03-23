@@ -13,6 +13,7 @@ class CreatePushesTable extends Migration
     public function up()
     {
         Schema::create('pushes', function (Blueprint $table) {
+            $table->increments('id');
             $table->text('payload');
             $table->integer('is_deployed');
             $table->timestamps();
