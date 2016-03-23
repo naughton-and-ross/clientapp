@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Client;
 use App\Project;
+use Carbon\Carbon;
 use DB;
 use Input;
 use Mail;
@@ -65,7 +66,8 @@ class APIController extends Controller
     public function receive_push(Request $request)
     {
         DB::table('pushes')->insert([
-            'payload' => $request->payload
+            'payload' => $request->payload,
+            'created_at' => Carbon::now()
         ]);
     }
 }
