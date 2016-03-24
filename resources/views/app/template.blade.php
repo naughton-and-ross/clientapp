@@ -44,7 +44,7 @@
             <div class="l-box">
                 <span>ClientApp {{config('app.version')}}</span>
                 <span>{{ str_limit($latest_commit['head_commit']['id'], 7) }} {{$latest_commit['head_commit']['message']}}</span>
-                <span>Deployed code is 4 commits behind GitHub</span>
+                <span>Deployed code is {{$latest_commit_diff}} commits behind GitHub</span>
             </div>
         </div>
     </body>
