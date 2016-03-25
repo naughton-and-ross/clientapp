@@ -22,4 +22,10 @@ class ExampleTest extends TestCase
         $this->visit('/')
              ->see('Login');
     }
+
+    public function testBasicExampleThree()
+    {
+        $this->visit('/')
+             ->see('Naughton & Ross ClientApp');
+    }
 }
