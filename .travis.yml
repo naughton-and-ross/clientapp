@@ -7,7 +7,7 @@ before_script:
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
-  - composer install --no-interaction --dev -- no-scripts
+  - composer install --no-interaction --dev --no-scripts
 
 script:
   - vendor/bin/phpunit
