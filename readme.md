@@ -1,4 +1,6 @@
-the 2016 revamp of Naughton & Ross' internal client management system.
+[![Build Status](https://travis-ci.org/naughton-and-ross/clientapp.svg?branch=master)](https://travis-ci.org/naughton-and-ross/clientapp)
+
+the 2016 revamp of Naughton & Ross' internal client management system. 
 
 [![forthebadge](http://forthebadge.com/images/badges/uses-html.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/uses-badges.svg)](http://forthebadge.com)
