@@ -10,4 +10,5 @@ before_script:
   - composer install --no-interaction --dev --no-scripts
 
 script:
+  - php artisan migrate --force
   - vendor/bin/phpunit
