@@ -87,4 +87,6 @@ Route::get('sms/{messageId}', function($messageId) {
     }
 });
 
+Route::get('send-notif', 'APIController@send_notification');
+
 Route::post('receive-github', 'APIController@receive_push');

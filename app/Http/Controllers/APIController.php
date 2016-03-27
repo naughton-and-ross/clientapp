@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendNotification;
 
 use Auth;
 use App\Client;
@@ -69,5 +70,13 @@ class APIController extends Controller
             'payload' => $request->payload,
             'created_at' => Carbon::now()
         ]);
+    }
+
+    public function send_notification()
+    {
+        $user = Auth::user();
+        $this->dispatch(new SendNotification($user));
+
+        return "sent";
     }
 }
