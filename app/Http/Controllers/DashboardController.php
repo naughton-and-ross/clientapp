@@ -23,8 +23,6 @@ class DashboardController extends Controller
 {
     public function renderDashboard()
     {
-        $user = Auth::user();
-        $this->dispatch(new SendNotification($user));
         $now = Carbon::now()->toDateTimeString();
         $clients = Client::all();
         $user_activity = UserActivity::latest()->get();
