@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App;
 use App\User;
 use Auth;
 use Mail;
@@ -45,10 +46,12 @@ class Client extends Model
         });
 
         static::created(function($client) {
-            $to_notify = User::all()->except($client->user->id);
+            if (App::environment('production')) {
+                $to_notify = User::all()->except($client->user->id);
 
-            foreach ($to_notify as $user) {
-                SMS::send($user->phone_number, 'ClientApp: A new client record ('.$client->name.') has been added.');
+                foreach ($to_notify as $user) {
+                    SMS::send($user->phone_number, 'ClientApp: A new client record ('.$client->name.') has been added.');
+                }
             }
         });
 

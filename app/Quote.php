@@ -55,11 +55,13 @@ class Quote extends Model
         });
 
         static::created(function($quote) {
-            $quote_amount = '$'.number_format($quote->amount);
-            $to_notify = User::all()->except($quote->user->id);
+            if (App::environment('production')) {
+                $quote_amount = '$'.number_format($quote->amount);
+                $to_notify = User::all()->except($quote->user->id);
 
-            foreach ($to_notify as $user) {
-                SMS::send($user->phone_number, 'ClientApp: A new quote for '.$quote_amount.' has been issued to '.$quote->client->name.'.');
+                foreach ($to_notify as $user) {
+                    SMS::send($user->phone_number, 'ClientApp: A new quote for '.$quote_amount.' has been issued to '.$quote->client->name.'.');
+                }
             }
         });
 

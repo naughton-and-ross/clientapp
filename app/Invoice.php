@@ -117,11 +117,13 @@ class Invoice extends Model
         });
 
         static::created(function($invoice) {
-            $invoice_amount = '$'.number_format($invoice->amount);
-            $to_notify = User::all()->except($invoice->user->id);
+            if (App::environment('production')) {
+                $invoice_amount = '$'.number_format($invoice->amount);
+                $to_notify = User::all()->except($invoice->user->id);
 
-            foreach ($to_notify as $user) {
-                SMS::send($user->phone_number, 'ClientApp: A new invoice for '.$invoice_amount.' has been issued to '.$invoice->client->name.'.');
+                foreach ($to_notify as $user) {
+                    SMS::send($user->phone_number, 'ClientApp: A new invoice for '.$invoice_amount.' has been issued to '.$invoice->client->name.'.');
+                }
             }
         });
 

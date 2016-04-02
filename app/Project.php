@@ -50,10 +50,12 @@ class Project extends Model
         });
 
         static::created(function($project) {
-            $to_notify = User::all()->except($project->user->id);
+            if (App::environment('production')) {
+                $to_notify = User::all()->except($project->user->id);
 
-            foreach ($to_notify as $user) {
-                SMS::send($user->phone_number, 'ClientApp: A new project ('.$project->name.') has been added for '.$project->client->name.'.');
+                foreach ($to_notify as $user) {
+                    SMS::send($user->phone_number, 'ClientApp: A new project ('.$project->name.') has been added for '.$project->client->name.'.');
+                }
             }
         });
 
