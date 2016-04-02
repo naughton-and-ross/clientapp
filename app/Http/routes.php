@@ -31,12 +31,6 @@ Route::group(['middleware' => ['auth', 'log']], function() {
     Route::resource('quotes', 'QuoteController');
 });
 
-Route::get('authme', function() {
-    if (Auth::attempt(['email' => 'william.gravette@gmail.com', 'password' => 'password'])) {
-        return redirect('/dashboard');
-    }
-});
-
 Route::get('deauth', function() {
     Auth::logout();
     return redirect('/auth/login');
@@ -86,7 +80,5 @@ Route::get('sms/{messageId}', function($messageId) {
         return "broken";
     }
 });
-
-Route::get('send-notif', 'APIController@send_notification');
 
 Route::post('receive-github', 'APIController@receive_push');
