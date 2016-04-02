@@ -12,4 +12,5 @@ before_script:
 script:
   - php artisan migrate --force
   - php artisan key:generate
+  - php artisan db:seed
   - vendor/bin/phpunit

@@ -28,4 +28,15 @@ class ExampleTest extends TestCase
         $this->visit('/')
              ->see('Naughton & Ross ClientApp');
     }
+
+    public function testAuth()
+    {
+        $user = factory(App\User::class)->create();
+
+        $this->actingAs($user)
+             ->get('/clients')
+             ->seeJson([
+                 'id' => 1,
+             ]);
+    }
 }
