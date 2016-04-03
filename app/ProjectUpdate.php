@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App;
 use SMS;
 
 class ProjectUpdate extends Model

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App;
 use Carbon\Carbon;
 use SMS;
 
