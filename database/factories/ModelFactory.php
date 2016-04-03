@@ -36,8 +36,10 @@ $factory->define(App\Invoice::class, function (Faker\Generator $faker) {
         'client_id' => '1',
         'user_id' => '1',
         'amount' => $faker->randomNumber(3),
-        'issue_date' => $faker->dateTime(),
-        'is_paid' => '0'
+        'issue_date' => Carbon\Carbon::now()->subHour(),
+        'due_date' => Carbon\Carbon::now()->addWeeks(2),
+        'is_paid' => '1',
+        'paid_at' => Carbon\Carbon::now()
     ];
 });
 

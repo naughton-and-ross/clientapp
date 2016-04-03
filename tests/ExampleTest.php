@@ -39,4 +39,13 @@ class ExampleTest extends TestCase
                  'id' => 1,
              ]);
     }
+
+    public function testDashboard()
+    {
+        $user = factory(App\User::class)->create();
+
+        $this->actingAs($user)
+             ->get('/dashboard')
+             ->see($user->name);
+    }
 }
