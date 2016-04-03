@@ -7,11 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Auth;
 use App\Project;
-use Input;
 
-class ProjectController extends Controller
+class MoodboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -39,21 +37,9 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($client_id, Request $request)
+    public function store(Request $request)
     {
-        $project = new Project;
-
-        $project->client_id = $client_id;
-        $project->user_id = Auth::user()->id;
-        $project->name = $request->name;
-        $project->desc = $request->desc;
-        if (isset($request->is_time_based)) {
-            $project->is_time_based = 1;
-        }
-
-        $project->save();
-
-        return redirect()->action('ProjectController@show', [$project->id]);
+        //
     }
 
     /**
@@ -65,16 +51,8 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::findOrFail($id);
-        $client = $project->client;
 
-        $project->project_updates = $project->project_updates()->desc()->get();
-        $project->project_activity = $project->project_activity()->desc()->get();
-        $project->moodboard_posts = $project->moodboard_posts()->get();
-
-        return view('app.project', [
-            'project' => $project,
-            'client'  => $client
-        ]);
+        return "Moodboard for ".$project->name;
     }
 
     /**
@@ -97,11 +75,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $project = Project::find($id);
-        $project->update($request->input('form_data'));
-        $project->save();
-
-        return $project;
+        //
     }
 
     /**

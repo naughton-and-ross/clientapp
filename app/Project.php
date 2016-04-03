@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App;
 use SMS;
 
 class Project extends Model
@@ -39,6 +40,16 @@ class Project extends Model
         return $this->hasOne('App\UserActivity');
     }
 
+    public function moodboard()
+    {
+        return $this->hasOne('App\Moodboard');
+    }
+
+    public function moodboard_posts()
+    {
+        return $this->hasMany('App\MoodboardPost');
+    }
+
     protected static function boot() {
         parent::boot();
 
@@ -46,6 +57,10 @@ class Project extends Model
              $project->user_activity()->create([
                  'user_id' => $project->user_id,
                  'activity_type' => 'project'
+             ]);
+             $project->moodboard()->create([
+                 'user_id' => $project->user_id,
+                 'client_id' => $project->client_id
              ]);
         });
 

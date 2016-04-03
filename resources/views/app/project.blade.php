@@ -184,6 +184,20 @@
             </p>
         </div>
     </div>
+    <div class="pure-u-1 moodboard">
+        <div class="l-box">
+            <p class="subheading">
+                Moodboard
+            </p>
+            @foreach($project->moodboard_posts as $mb_post)
+            <div class="mb-post">
+                @if($mb_post->post_type == "img_link")
+                <img src="{{$mb_post->url}}" />
+                @endif
+            </div>
+            @endforeach
+        </div>
+    </div>
     <div class="pure-u-14-24 actions">
         <div class="l-box">
             <p class="subheading">

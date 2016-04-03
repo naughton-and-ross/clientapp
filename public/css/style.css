@@ -289,6 +289,12 @@ select {
       margin-left: -10px;
       background-color: white; }
 
+.criticals .moodboard .mb-post {
+  height: 200px;
+  display: inline-block; }
+  .criticals .moodboard .mb-post img {
+    height: 100%; }
+
 .criticals .actions form {
   display: inline; }
 

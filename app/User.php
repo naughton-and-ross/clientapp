@@ -57,4 +57,14 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\UserActivity');
     }
 
+    public function moodboards()
+    {
+        return $this->hasMany('App\Moodboard');
+    }
+
+    public function moodboard_posts()
+    {
+        return $this->hasMany('App\MoodboardPost');
+    }
+
 }

@@ -31,6 +31,10 @@ Route::group(['middleware' => ['auth', 'log']], function() {
     Route::resource('quotes', 'QuoteController');
 });
 
+// Moodboard routes...
+Route::get('projects/{project_id}/moodboard', 'MoodboardController@show');
+
+// Logout route...
 Route::get('deauth', function() {
     Auth::logout();
     return redirect('/auth/login');
