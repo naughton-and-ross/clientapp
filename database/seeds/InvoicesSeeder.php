@@ -15,11 +15,11 @@ class InvoicesSeeder extends Seeder
     {
         factory(App\Invoice::class, 2)->create();
 
-        factory(App\Invoice::class, 2)->make([
+        factory(App\Invoice::class)->create([
             'issue_date' => Carbon::now()->subYear()->subHour(),
             'due_date' => Carbon::now()->subYear()->addWeeks(2),
             'is_paid' => '1',
-            'paid_at' => Carbon::now()->subYear()
+            'paid_at' => Carbon::now()->subYear(),
         ]);
     }
 }
