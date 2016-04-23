@@ -187,7 +187,7 @@
     <div class="pure-u-1 moodboard">
         <div class="l-box">
             <p class="subheading">
-                Moodboard Posts
+                Moodboard
             </p>
             @foreach($project->moodboard_posts as $mb_post)
             <div class="mb-post">
