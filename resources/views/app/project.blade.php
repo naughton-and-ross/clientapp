@@ -187,7 +187,7 @@
     <div class="pure-u-1 moodboard">
         <div class="l-box">
             <p class="subheading">
-                Moodboard
+                Latest from Moodboard <a href="{{url('/projects/')}}/{{$project->id}}/moodboard"><i class="fa fa-external-link" aria-hidden="true"></i></a>
             </p>
         </div>
         <div class="pure-g">

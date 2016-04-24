@@ -51,8 +51,14 @@ class MoodboardController extends Controller
     public function show($id)
     {
         $project = Project::findOrFail($id);
+        $client = $project->client;
+        $moodboard = $project->moodboard_posts;
 
-        return "Moodboard for ".$project->name;
+        return view('app.moodboard', [
+            'project' => $project,
+            'client' => $client,
+            'moodboard' => $moodboard
+        ]);
     }
 
     /**

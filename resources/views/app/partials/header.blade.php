@@ -35,11 +35,25 @@
         @endif
         @if (isset($project))
         <span class="upper_level">/</span>
-        <p>
+        <p class="@if (isset($moodboard)) upper_level @endif">
+            @if (isset($moodboard))
+            <a href="{{url('/projects/')}}/{{$project->id}}">
+            @endif
             {{$project->name}}
+            @if (isset($moodboard))
+            </a>
+            @endif
         </p>
+        @if (!isset($moodboard))
         <div class="client_status green" v-if="project_complete"></div>
         <div class="client_status yellow" v-if="!project_complete"></div>
+        @endif
+        @if (isset($moodboard))
+        <span class="upper_level">/</span>
+        <p>
+            Moodboard
+        </p>
+        @endif
         <div class="pure-u-1">
             <div class="pure-u-12-24">
                 <p class="details">
