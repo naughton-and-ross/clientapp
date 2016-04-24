@@ -470,11 +470,26 @@ select {
 
         .mb-post {
             height: 200px;
-            display: inline-block;
-
+            background-size: cover;
+            background-position: center;
+            background-color: #F9F9F9;
             img {
-                height: 100%;
+                width: 100%;
             }
+
+            .text {
+                p {
+                    font-size: 115%;
+
+                    &.details {
+                        font-size: 90%;
+                    }
+                }
+            }
+        }
+
+        .mb-post-details {
+            background-color: #F9F9F9;
         }
     }
 

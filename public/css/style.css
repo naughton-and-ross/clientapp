@@ -291,9 +291,18 @@ select {
 
 .criticals .moodboard .mb-post {
   height: 200px;
-  display: inline-block; }
+  background-size: cover;
+  background-position: center;
+  background-color: #F9F9F9; }
   .criticals .moodboard .mb-post img {
-    height: 100%; }
+    width: 100%; }
+  .criticals .moodboard .mb-post .text p {
+    font-size: 115%; }
+    .criticals .moodboard .mb-post .text p.details {
+      font-size: 90%; }
+
+.criticals .moodboard .mb-post-details {
+  background-color: #F9F9F9; }
 
 .criticals .actions form {
   display: inline; }

@@ -189,10 +189,23 @@
             <p class="subheading">
                 Moodboard
             </p>
+        </div>
+        <div class="pure-g">
             @foreach($project->moodboard_posts as $mb_post)
-            <div class="mb-post">
-                @if($mb_post->post_type == "img_link")
-                <img src="{{$mb_post->url}}" />
+            <div class="mb-post pure-u-6-24" style="
+            @if($mb_post->post_type == "img_link")
+            background-image:url({{$mb_post->url}})
+            @endif
+            ">
+                @if($mb_post->post_type == "text")
+                <div class="text l-box">
+                    <p>
+                        {{$mb_post->text}}
+                    </p>
+                    <p class="details">
+                        {{$mb_post->created_at->diffForHumans()}}
+                    </p>
+                </div>
                 @endif
             </div>
             @endforeach

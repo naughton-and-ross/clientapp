@@ -69,7 +69,15 @@ class ProjectController extends Controller
 
         $project->project_updates = $project->project_updates()->desc()->get();
         $project->project_activity = $project->project_activity()->desc()->get();
-        $project->moodboard_posts = $project->moodboard_posts()->get();
+        $project->moodboard_posts = $project->moodboard_posts()->latest()->take(4)->get();
+
+        foreach ($project->moodboard_posts as $mb_post) {
+            if ($mb_post->post_type == "text") {
+                if (strlen(utf8_decode($mb_post->text)) > 140) {
+                    $mb_post->text = substr($mb_post->text,0,137).'...';
+                }
+            }
+        }
 
         return view('app.project', [
             'project' => $project,

@@ -17,4 +17,8 @@ class MoodboardPost extends Model
     public function moodboard() {
         return $this->belongsTo('App\Moodboard');
     }
+
+    public function scopeLatest($query) {
+        return $query->orderBy('created_at', 'desc');
+    }
 }
