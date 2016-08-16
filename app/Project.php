@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use SMS;
+use App;
 
 class Project extends Model
 {
@@ -51,7 +52,7 @@ class Project extends Model
 
         static::created(function($project) {
             if (App::environment('production')) {
-                $to_notify = User::all()->except($project->user->id);
+                $to_notify = User::all();
 
                 foreach ($to_notify as $user) {
                     SMS::send($user->phone_number, 'ClientApp: A new project ('.$project->name.') has been added for '.$project->client->name.'.');
