@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use SMS;
 use App;
+use SMS;
+
 
 class Project extends Model
 {
